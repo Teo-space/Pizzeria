@@ -2,8 +2,9 @@
 using Pizzeria.Domain.Deliveries;
 using Pizzeria.Domain.Orders;
 using Pizzeria.Domain.Products;
+using Pizzeria.Domain.Shops;
 
-namespace Pizzeria.Interfaces.Repositories;
+namespace Pizzeria.Services.Interfaces.Repositories;
 
 public interface IRepository
 {
@@ -14,6 +15,8 @@ public interface IRepository
 
     public DbSet<ProductType> ProductTypes { get; }
     public DbSet<Product> Products { get; }
-    public DbSet<ProductVariant> ProductVariants { get; }
+
+    public DbSet<Shop> Shops { get; }
+
 
 }

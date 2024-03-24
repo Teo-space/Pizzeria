@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Pizzeria.Domain.Orders;
+﻿namespace Pizzeria.Domain.Orders;
 
 /// <summary>
 /// Покупатель заказа

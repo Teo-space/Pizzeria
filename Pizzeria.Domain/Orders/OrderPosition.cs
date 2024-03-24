@@ -1,7 +1,4 @@
-﻿using Pizzeria.Domain.Products;
-using System.ComponentModel.DataAnnotations;
-
-namespace Pizzeria.Domain.Orders;
+﻿namespace Pizzeria.Domain.Orders;
 
 /// <summary>
 /// позиция заказа
@@ -9,18 +6,18 @@ namespace Pizzeria.Domain.Orders;
 [Table("ORDER_POSITION")]
 [PrimaryKey(nameof(OrderPositionId))]
 [Index(nameof(OrderId))]
-[Index(nameof(OrderId), nameof(ProductVariantId), IsUnique = true)]
+[Index(nameof(OrderId), nameof(ProductId), IsUnique = true)]
 public class OrderPosition : Entity
 {
     private OrderPosition() { }
-    public OrderPosition(Order order, ProductVariant productVariant, int quantity)
+    public OrderPosition(Order order, Product product, int quantity)
     {
-        OrderPositionId = Ulid.NewUlid().ToGuid();
+        OrderPositionId = Ulid.NewUlid();
         OrderId = order.OrderId;
-        ProductVariantId = productVariant.ProductVariantId;
-        ProductId = productVariant.ProductId;
-        ProductTypeId = productVariant.ProductTypeId;
-        Price = productVariant.Price;
+
+        ProductId = product.ProductId;
+        ProductTypeId = product.ProductTypeId;
+        Price = product.Price;
 
         Quanity = quantity;
     }
@@ -28,34 +25,27 @@ public class OrderPosition : Entity
     /// <summary>
     /// ID позиции заказа
     /// </summary>
-    public Guid OrderPositionId { get; private set; }
+    public Ulid OrderPositionId { get; private set; }
 
     /// <summary>
     /// ID заказа
     /// </summary>
     [Required]
-    public Guid OrderId { get; private set; }
+    public Ulid OrderId { get; private set; }
     public Order Order { get; private set; }
-
-    /// <summary>
-    /// Ид. варианта продукта
-    /// </summary>
-    [Required]
-    public Guid ProductVariantId { get; private set; }
-    public ProductVariant ProductVariant { get; private set; }
 
     /// <summary>
     /// Ид. продукта
     /// </summary>
     [Required]
-    public Guid ProductId { get; private set; }
+    public Ulid ProductId { get; private set; }
     public Product Product { get; private set; }
 
     /// <summary>
     /// Ид. типа продукта
     /// </summary>
     [Required]
-    public Guid ProductTypeId { get; private set; }
+    public Ulid ProductTypeId { get; private set; }
     public ProductType ProductType { get; private set; }
 
     /// <summary>

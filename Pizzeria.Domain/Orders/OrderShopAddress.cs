@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-
-namespace Pizzeria.Domain.Shops;
+﻿namespace Pizzeria.Domain.Shops;
 
 /// <summary>
 /// Адрес магазина

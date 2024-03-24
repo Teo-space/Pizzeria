@@ -15,4 +15,13 @@
 		<InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Models\Payments\" />
+	  <Folder Include="Models\Products\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Pizzeria.Domain\Pizzeria.Domain.csproj" />
+	</ItemGroup>
+
 </Project>

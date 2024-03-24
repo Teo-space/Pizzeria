@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Pizzeria.Domain.Products;
+﻿namespace Pizzeria.Domain.Products;
 
 /// <summary>
 /// Тип товара
@@ -15,7 +13,7 @@ public class ProductType : Entity
     private ProductType() { }
     public ProductType(string name, string description)
     {
-        ProductTypeId = Ulid.NewUlid().ToGuid();
+        ProductTypeId = Ulid.NewUlid();
         Name = name;
         Description = description;
     }
@@ -24,7 +22,7 @@ public class ProductType : Entity
     /// Ид. типа продукта
     /// </summary>
     [Column("PRODUCT_TYPE_ID")]
-    public Guid ProductTypeId { get; private set; }
+    public Ulid ProductTypeId { get; private set; }
 
     /// <summary>
     /// наименование
@@ -36,7 +34,7 @@ public class ProductType : Entity
     /// Описание
     /// </summary>
     [Column("DESCRIPTION"), StringLength(1000)]
-    public required string Description { get; set; }
+    public string Description { get; private set; }
 
     /// <summary>
     /// требуется ли приготовление

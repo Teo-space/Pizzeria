@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Pizzeria.Domain.Orders;
+﻿namespace Pizzeria.Domain.Orders;
 
 
 /// <summary>
@@ -11,11 +9,9 @@ namespace Pizzeria.Domain.Orders;
 public class Order : Aggregate
 {
     private Order() { }
-    public Order(OrderClient client, OrderShop shop, OrderDelivery delivery, OrderPayment payment
-        //IReadOnlyCollection<BasketPosition> basketPositions
-        )
+    public Order(OrderClient client, OrderShop shop, OrderDelivery delivery, OrderPayment payment)
     {
-        OrderId = Ulid.NewUlid().ToGuid();
+        OrderId = Ulid.NewUlid();
         Status = OrderStatus.Pending;
 
         Client = client;
@@ -23,84 +19,62 @@ public class Order : Aggregate
         Delivery = delivery;
         Payment = payment;
 
-        Date.Created = DateTime.Now;
-        Date.Modified = Date.Created;
-
-        /*
-        foreach (var basketPosition in basketPositions)
+        Date = new OrderDate()
         {
-            var position = new OrderPosition(this, basketPosition);
-            this.Positions.Add(position);
-        }
-        */
-        //Очистка корзины
+            Created = DateTime.Now,
+            Modified = DateTime.Now,
+        };
     }
 
-    /// <summary>
-    /// ID Заказа
-    /// </summary>
+    /// <summary>ID Заказа</summary>
     [Column("ORDER_ID", Order = 1)]
-    public Guid OrderId { get; private set; }
-
-    /// <summary>
-    /// Статус заказа
-    /// </summary>
+    public Ulid OrderId { get; private set; }
+    /// <summary>Статус заказа</summary>
     [Column("ORDER_STATUS", Order = 2)]
     public OrderStatus Status { get; private set; }
-
-    /// <summary>
-    /// Даты создания, изменения и готовности
-    /// </summary>
+    /// <summary>Даты создания, изменения и готовности</summary>
     [Required]
-    public required Date Date { get; set; } = new Date();
+    public OrderDate Date { get; private set; }
 
-    /// <summary>
-    /// Информация о клиенте
-    /// </summary>
+    /// <summary>Информация о клиенте</summary>
     [Required]
     public OrderClient Client { get; private set; }
 
-    /// <summary>
-    /// Информация о доставке
-    /// </summary>
+    /// <summary>Информация о доставке</summary>
     [Required]
     public OrderDelivery Delivery { get; private set; }
-    /// <summary>
-    /// Оплата
-    /// </summary>
+    /// <summary>Оплата</summary>
     [Required]
     public OrderPayment Payment { get; private set; }
-    /// <summary>
-    /// информация о магазине
-    /// </summary>
+    /// <summary>информация о магазине</summary>
     [Required]
     public OrderShop Shop { get; private set; }
-
-
 
     [NotMapped]
     public bool IsReady { get => Positions.All(x => x.IsReady); }
 
+    /// <summary>
+    /// Позиции заказа
+    /// </summary>
+    public HashSet<OrderPosition> Positions { get; set; } = new HashSet<OrderPosition>();
 
-    /*
+
+    public OrderPosition AddPosition(Product product, int quantity)
+    {
+        var position = new OrderPosition(this, product, quantity);
+        Positions.Add(position);
+        return position;
+    }
+
     /// <summary>
     /// Сумма заказа
     /// </summary>
     public decimal Sum()
     {
         var positionsSum = Positions.Sum(position => position.Sum);
-        if(positionsSum >= Delivery.DeliveryType.DeliveryFreeOrder)
-        {
-            return positionsSum;
-        }
-        return positionsSum + Delivery.DeliveryType.Price;
+        return positionsSum;
+        //Добавить сумму доставки
     }
-    */
-
-    /// <summary>
-    /// Позиции заказа
-    /// </summary>
-    public HashSet<OrderPosition> Positions { get; private set; } = new HashSet<OrderPosition>();
 
 
     /*

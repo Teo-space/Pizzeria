@@ -1,6 +1,4 @@
-﻿using Pizzeria.Domain.Deliveries;
-using Pizzeria.Domain.Orders;
-using Pizzeria.Domain.Products;
+﻿using Pizzeria.Persistence.DbContexts.Convertors;
 
 namespace Pizzeria.Persistence.DbContexts;
 
@@ -14,7 +12,10 @@ internal class PizzeriaDbContext : DbContext
 
     public DbSet<ProductType> ProductTypes { get; set; }
     public DbSet<Product> Products { get; set; }
-    public DbSet<ProductVariant> ProductVariants { get; set; }
+
+    public DbSet<Shop> Shops { get; set; }
+
+
 
     public PizzeriaDbContext(DbContextOptions<PizzeriaDbContext> options) : base(options)
     {
@@ -26,7 +27,12 @@ internal class PizzeriaDbContext : DbContext
         //optionsBuilder.UseUpperSnakeCaseNamingConvention();
         //optionsBuilder.EnableDetailedErrors();
         //optionsBuilder.EnableSensitiveDataLogging();
-        optionsBuilder.LogTo(Console.WriteLine);
+        optionsBuilder.LogTo(Console.WriteLine, minimumLevel: Microsoft.Extensions.Logging.LogLevel.Information);
+    }
+
+    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+    {
+        configurationBuilder.Properties<Ulid>().HaveConversion<UlidToGuidConvertor>();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

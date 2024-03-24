@@ -1,6 +1,4 @@
-﻿using Pizzeria.Interfaces.Services;
-
-namespace Pizzeria.Infrastructure.Services;
+﻿namespace Pizzeria.Infrastructure.Services;
 
 internal class SendSMSService : ISendSMSService
 {

@@ -33,7 +33,6 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\Pizzeria.Domain\Pizzeria.Domain.csproj" />
 	  <ProjectReference Include="..\Pizzeria.Infrastructure\Pizzeria.Infrastructure.csproj" />
-	  <ProjectReference Include="..\Pizzeria.Interfaces\Pizzeria.Interfaces.csproj" />
 	  <ProjectReference Include="..\Pizzeria.Persistence\Pizzeria.Persistence.csproj" />
 	  <ProjectReference Include="..\Pizzeria.Services\Pizzeria.Services.csproj" />
 	</ItemGroup>

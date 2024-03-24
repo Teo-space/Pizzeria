@@ -1,7 +1,4 @@
-﻿using Pizzeria.Domain.Payments;
-using System.ComponentModel.DataAnnotations;
-
-namespace Pizzeria.Domain.Orders;
+﻿namespace Pizzeria.Domain.Orders;
 
 /// <summary>
 /// Платеж заказа
@@ -13,7 +10,7 @@ public class OrderPayment
     /// Способ оплаты
     /// </summary>
     [Column(Order = 51), Required]
-    public PaymentType Type { get; private set; }
+    public required PaymentType Type { get; set; }
 
     /// <summary>
     /// Сумма платежа

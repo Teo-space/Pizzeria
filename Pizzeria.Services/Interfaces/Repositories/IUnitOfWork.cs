@@ -1,4 +1,4 @@
-﻿namespace Pizzeria.Interfaces.Repositories;
+﻿namespace Pizzeria.Services.Interfaces.Repositories;
 
 public interface IUnitOfWork
 {

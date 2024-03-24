@@ -17,5 +17,12 @@ global using Microsoft.Extensions.Configuration;
 ////////////////////////////////////////////////////////////////////
 global using Domain;
 global using Pizzeria.Domain;
+global using Pizzeria.Domain.Orders;
+global using Pizzeria.Domain.Deliveries;
+global using Pizzeria.Domain.Payments;
+global using Pizzeria.Domain.Products;
+global using Pizzeria.Domain.Shops;
 
+////////////////////////////////////////////////////////////////////
+global using Pizzeria.Services.Interfaces.Repositories;
 

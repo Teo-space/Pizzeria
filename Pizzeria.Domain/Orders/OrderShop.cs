@@ -1,7 +1,4 @@
-﻿using Pizzeria.Domain.Shops;
-using System.ComponentModel.DataAnnotations;
-
-namespace Pizzeria.Domain.Orders;
+﻿namespace Pizzeria.Domain.Orders;
 
 /// <summary>
 /// Магазин отправления заказа
@@ -13,7 +10,7 @@ public class OrderShop
     /// ID магазина
     /// </summary>
     [Column(Order = 61), Required]
-    public required Guid ShopId { get; set; }
+    public required Ulid ShopId { get; set; }
 
     /// <summary>
     /// наименование

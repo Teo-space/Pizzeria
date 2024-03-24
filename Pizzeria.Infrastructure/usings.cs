@@ -1,3 +1,1 @@
-﻿global using Pizzeria.Interfaces;
-
-
+﻿global using Pizzeria.Services.Interfaces.Services;

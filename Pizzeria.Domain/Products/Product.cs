@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Pizzeria.Domain.Products;
+﻿namespace Pizzeria.Domain.Products;
 
 
 [Table("PRODUCTS")]
@@ -12,39 +10,30 @@ public class Product : Entity
     private Product() { }
     public Product(ProductType productType, string name, string description)
     {
-        ProductId = Ulid.NewUlid().ToGuid();
+        ProductId = Ulid.NewUlid();
         ProductTypeId = productType.ProductTypeId;
         Name = name;
         Description = description;
     }
-    /// <summary>
-    /// Ид. продукта
-    /// </summary>
-    [Column("PRODUCT_ID")]
-    public Guid ProductId { get; private set; }
 
-    /// <summary>
-    /// Ид. типа продукта
-    /// </summary>
+    /// <summary> Ид. продукта </summary>
+    [Column("PRODUCT_ID")]
+    public Ulid ProductId { get; private set; }
+
+    /// <summary> Ид. типа продукта </summary>
     [Column("PRODUCT_TYPE_ID")]
-    public Guid ProductTypeId { get; private set; }
+    public Ulid ProductTypeId { get; private set; }
     public ProductType ProductType { get; private set; }
 
-    /// <summary>
-    /// наименование
-    /// </summary>
+    /// <summary> наименование </summary>
     [Column("NAME"), StringLength(100)]
     public string Name { get; private set; }
 
-    /// <summary>
-    /// Описание
-    /// </summary>
+    /// <summary> Описание </summary>
     [Column("DESCRIPTION"), StringLength(1000)]
-    public required string Description { get; set; }
+    public string Description { get; private set; }
 
-    /// <summary>
-    /// Варианты продукта
-    /// </summary>
-    public List<ProductVariant> Variants { get; private set; } = new List<ProductVariant>();
-
+    /// <summary> Описание </summary>
+    [Column("PRICE")]
+    public required decimal Price { get; set; }
 }

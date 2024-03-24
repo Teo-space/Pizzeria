@@ -13,8 +13,16 @@ global using System.Text.RegularExpressions;
 global using Microsoft.Extensions.DependencyInjection;
 ////////////////////////////////////////////////////////////////////
 global using Microsoft.EntityFrameworkCore;
+global using System.ComponentModel.DataAnnotations;
 global using System.ComponentModel.DataAnnotations.Schema;
 ////////////////////////////////////////////////////////////////////
 global using Domain;
+global using Pizzeria.Domain;
+global using Pizzeria.Domain.Orders;
+global using Pizzeria.Domain.Deliveries;
+global using Pizzeria.Domain.Payments;
+global using Pizzeria.Domain.Products;
+global using Pizzeria.Domain.Shops;
+
 
 

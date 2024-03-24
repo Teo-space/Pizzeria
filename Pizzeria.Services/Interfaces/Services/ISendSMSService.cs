@@ -1,4 +1,4 @@
-﻿namespace Pizzeria.Interfaces.Services;
+﻿namespace Pizzeria.Services.Interfaces.Services;
 
 public interface ISendSMSService
 {

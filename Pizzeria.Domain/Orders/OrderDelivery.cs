@@ -1,7 +1,4 @@
-﻿using Pizzeria.Domain.Deliveries;
-using System.ComponentModel.DataAnnotations;
-
-namespace Pizzeria.Domain.Orders;
+﻿namespace Pizzeria.Domain.Orders;
 
 /// <summary>
 /// Информация о доставке
@@ -9,11 +6,15 @@ namespace Pizzeria.Domain.Orders;
 [ComplexType]
 public class OrderDelivery
 {
-    /// <summary>ID типа доставки</summary>
+    /// <summary>
+    /// ID типа доставки
+    /// </summary>
     [Column(Order = 31), Required]
-    public required Guid TypeId { get; set; }
+    public required Ulid TypeId { get; set; }
 
-    /// <summary>Статус доставки</summary>
+    /// <summary>
+    /// Статус доставки
+    /// </summary>
     [Column(Order = 32), Required]
     public required DeliveryStatus Status { get; set; }
 
