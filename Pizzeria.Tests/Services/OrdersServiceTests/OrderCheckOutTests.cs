@@ -96,7 +96,7 @@ internal class OrderCheckOutTests
             Client = new OrderClientInputModel()
             {
                 Phone = +7_908_123_4567,
-                Email = default,
+                Email = "name.surname.city@gmail.com",
                 Name = "Иван",
                 SurName = "Иванов",
                 Patronymic = "Иванович",

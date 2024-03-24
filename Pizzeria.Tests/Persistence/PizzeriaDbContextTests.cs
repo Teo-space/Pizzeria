@@ -13,14 +13,10 @@ internal class PizzeriaDbContextTests
     public void Setup()
     {
         var Options = new DbContextOptionsBuilder<PizzeriaDbContext>()
-            //.UseSqlServer($@"Data Source=(LocalDb)\MSSQLLocalDB; Database=DbContext_{Guid.NewGuid()}").Options;
-            //.UseSqlServer($@"Data Source=(LocalDb)\MSSQLLocalDB; Initial Catalog=DbContext_{Guid.NewGuid()}").Options;
             .UseSqlite("DataSource=file::memory:?cache=shared").Options;
             //.UseSqlite("DataSource=file.db").Options;
 
         pizzeriaDbContext = new PizzeriaDbContext(Options);
-        //pizzeriaDbContext.Database.EnsureDeleted();
-        //pizzeriaDbContext.Database.EnsureCreated();
     }
 
     [TearDown]
@@ -32,7 +28,15 @@ internal class PizzeriaDbContextTests
     [Test]
     public async Task Test()
     {
-        var result = pizzeriaDbContext.Orders.Count();
-        Console.WriteLine(result);
+        pizzeriaDbContext.DeliveryTypes.Count();
+
+        pizzeriaDbContext.Orders.Count();
+        pizzeriaDbContext.OrderPositions.Count();
+
+        pizzeriaDbContext.ProductTypes.Count();
+        pizzeriaDbContext.Products.Count();
+
+        pizzeriaDbContext.Shops.Count();
+
     }
 }
