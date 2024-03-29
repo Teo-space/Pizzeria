@@ -1,6 +1,6 @@
 ﻿using Pizzeria.Domain.Payments;
 
-namespace Pizzeria.Services.Models.Orders.OrderCreate.Input;
+namespace Pizzeria.Services.Models.Orders.OrderCheckOut.Input;
 
 /// <summary>
 /// Оформление заказа
@@ -10,11 +10,11 @@ public class OrderInputModel
     /// <summary>
     /// Информация о клиенте
     /// </summary>
-    public required OrderClientInputModel Client {  get; set; }
+    public required OrderClientInputModel Client { get; set; }
     /// <summary>
     /// Информация о магазине
     /// </summary>
-    public required OrderShopInputModel Shop { get; set; } 
+    public required OrderShopInputModel Shop { get; set; }
     /// <summary>
     /// Информация о доставке
     /// </summary>

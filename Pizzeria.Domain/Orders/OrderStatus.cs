@@ -1,23 +1,20 @@
 ﻿namespace Pizzeria.Domain.Orders;
 
+/// <summary>
+/// Статус заказа
+/// Pending
+/// Происходит проверка менеджером состава заказа, адреса, потом контрольный звонок
+/// После чего менеджер либо подтверждает либо отклоняет заказ
+/// Approve: 
+/// если в составе заказа есть позиции которые требуют приготовления то статус становится CookingPending и заказ передается на кухню
+/// если в составе нет позиций которые требуют приготовления то статус сразу становится DeliveryPending
+/// </summary>
 public enum OrderStatus
 {
     /// <summary>
     /// Ожидает
     /// </summary>
     Pending = 0,
-    /// <summary>
-    /// Подтвержден менеджером
-    /// </summary>
-    Aproved = 100,
-    /// <summary>
-    /// Отклонен менеджером
-    /// </summary>
-    Disaproved = 101,
-    /// <summary>
-    /// Взят в работу
-    /// </summary>
-    InWork = 200,
 
     /// <summary>
     /// Передан на кухню (в случае если в составе есть товары требующие приготовления
@@ -32,10 +29,7 @@ public enum OrderStatus
     /// </summary>
     CookingReady = 302,
 
-    /// <summary>
-    /// Передан наборщикам
-    /// </summary>
-    CollectingOrder = 303,
+
     /// <summary>
     /// Передан в доставку
     /// </summary>
@@ -53,4 +47,8 @@ public enum OrderStatus
     /// </summary>
     Finished = 1000,
 
+    /// <summary>
+    /// отменен
+    /// </summary>
+    Canceled = 10000,
 }

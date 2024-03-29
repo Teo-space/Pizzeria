@@ -3,7 +3,7 @@ using Pizzeria.Domain.Deliveries;
 using Pizzeria.Domain.Orders;
 using Pizzeria.Services.Interfaces.Repositories;
 using Pizzeria.Services.Interfaces.Services;
-using Pizzeria.Services.Models.Orders.OrderCreate.Input;
+using Pizzeria.Services.Models.Orders.OrderCheckOut.Input;
 
 namespace Pizzeria.Services;
 
@@ -90,6 +90,9 @@ internal class OrdersService(
         return order.OrderId;
     }
 
+    public async Task GetOrderDetail()
+    {
 
+    }
 
 }

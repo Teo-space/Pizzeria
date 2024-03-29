@@ -1,4 +1,4 @@
-﻿using Pizzeria.Services.Models.Orders.OrderCreate.Input;
+﻿using Pizzeria.Services.Models.Orders.OrderCheckOut.Input;
 
 namespace Pizzeria.Services.Interfaces.Services;
 

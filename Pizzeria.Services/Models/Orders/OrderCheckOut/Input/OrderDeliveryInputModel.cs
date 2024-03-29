@@ -1,4 +1,4 @@
-﻿namespace Pizzeria.Services.Models.Orders.OrderCreate.Input;
+﻿namespace Pizzeria.Services.Models.Orders.OrderCheckOut.Input;
 
 public class OrderDeliveryInputModel
 {
