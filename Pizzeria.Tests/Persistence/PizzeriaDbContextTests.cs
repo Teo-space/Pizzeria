@@ -1,6 +1,5 @@
 ﻿namespace Pizzeria.Tests.Persistence;
 
-using Microsoft.EntityFrameworkCore;
 using Pizzeria.Persistence.DbContexts;
 
 
@@ -12,11 +11,7 @@ internal class PizzeriaDbContextTests
     [SetUp]
     public void Setup()
     {
-        var Options = new DbContextOptionsBuilder<PizzeriaDbContext>()
-            .UseSqlite("DataSource=file::memory:?cache=shared").Options;
-            //.UseSqlite("DataSource=file.db").Options;
-
-        pizzeriaDbContext = new PizzeriaDbContext(Options);
+        pizzeriaDbContext = DbContextFactory.GetPizzeriaDbContext();
     }
 
     [TearDown]
@@ -25,18 +20,56 @@ internal class PizzeriaDbContextTests
         pizzeriaDbContext.Dispose();
     }
 
+
     [Test]
-    public async Task Test()
+    public async Task AEnsureCreated()
+    {
+        pizzeriaDbContext.Database.EnsureCreated();
+    }
+
+    [Test]
+    public async Task TestDeliveryTypes()
     {
         pizzeriaDbContext.DeliveryTypes.Count();
-
-        pizzeriaDbContext.Orders.Count();
-        pizzeriaDbContext.OrderPositions.Count();
-
-        pizzeriaDbContext.ProductTypes.Count();
-        pizzeriaDbContext.Products.Count();
-
-        pizzeriaDbContext.Shops.Count();
-
+        pizzeriaDbContext.DeliveryTypes.ToList();
     }
+
+    [Test]
+    public async Task TestOrders()
+    {
+        pizzeriaDbContext.Orders.Count();
+        pizzeriaDbContext.Orders.ToList();
+    }
+
+     [Test]
+    public async Task TestOrderPositions()
+    {
+        pizzeriaDbContext.OrderPositions.Count();
+        pizzeriaDbContext.OrderPositions.ToList();
+    }
+
+    [Test]
+    public async Task TestProductTypes()
+    {
+        pizzeriaDbContext.ProductTypes.Count();
+        pizzeriaDbContext.ProductTypes.ToList();
+    }
+
+    [Test]
+    public async Task TestProduct()
+    {
+        pizzeriaDbContext.Products.Count();
+        pizzeriaDbContext.Products.ToList();
+    }
+
+    [Test]
+    public async Task TestShops()
+    {
+        pizzeriaDbContext.Shops.Count();
+        pizzeriaDbContext.Shops.ToList();
+    }
+
+
+
+
 }

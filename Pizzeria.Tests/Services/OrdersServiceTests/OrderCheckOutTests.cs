@@ -9,7 +9,7 @@ using Pizzeria.Persistence;
 using Pizzeria.Persistence.DbContexts;
 using Pizzeria.Services;
 using Pizzeria.Services.Interfaces.Services;
-using Pizzeria.Services.Models.Orders.OrderCreate.Input;
+using Pizzeria.Services.Models.Orders.OrderCheckOut.Input;
 
 namespace Pizzeria.Tests.Services.OrdersServiceTests;
 
@@ -51,9 +51,9 @@ internal class OrderCheckOutTests
 
         var product = new Product(productType, "Гавайская пицца",
             "куриное филе, ветчина, ананасы консервированные, соус коктейль, сыр моцарелла, грибы шампиньоны") 
-        {
-            Price = 850
-        };
+            {
+                Price = 850
+            };
 
         pizzeriaDbContext.Products.Add(product);
         pizzeriaDbContext.SaveChanges();
@@ -132,10 +132,10 @@ internal class OrderCheckOutTests
 
         var order = pizzeriaDbContext.Orders
             .AsNoTracking()
-            //.AsSplitQuery()
             .Where(x => x.OrderId == orderId)
             .Include(x => x.Positions)
             .First();
+
         order.Positions.Should().NotBeNullOrEmpty();
         order.Positions.Should().HaveCount(1);
     }
