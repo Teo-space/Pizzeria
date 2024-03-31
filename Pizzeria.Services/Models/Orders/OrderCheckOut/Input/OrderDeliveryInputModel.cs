@@ -5,7 +5,7 @@ public class OrderDeliveryInputModel
     /// <summary>
     /// ID типа доставки
     /// </summary>
-    public required Ulid TypeId { get; set; }
+    public required int DeliveryTypeId { get; set; }
 
     /// <summary>
     /// Адрес доставки

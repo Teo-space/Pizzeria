@@ -1,28 +1,17 @@
 ﻿namespace Pizzeria.Domain.Deliveries;
 
+
 /// <summary>
 /// Статусы доставки
 /// </summary>
-public enum DeliveryStatus
+public class DeliveryStatus : Entity
 {
     /// <summary>
-    /// Ожидает
+    /// ID статуса доставки
     /// </summary>
-    Pending = 0,
+    public int DeliveryStatusId { get; set; }
     /// <summary>
-    /// Взят в работу
+    /// Наименование статуса доставки
     /// </summary>
-    InWork = 100,
-    /// <summary>
-    /// В процессе доставки
-    /// </summary>
-    Delivering = 200,
-    /// <summary>
-    /// Доставлен
-    /// </summary>
-    Ready = 1000,
-    /// <summary>
-    /// Отменена
-    /// </summary>
-    Canceled = -1000,
+    public string Name { get; set; }
 }

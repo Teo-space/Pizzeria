@@ -3,19 +3,16 @@
 /// <summary>
 /// Магазин отправления заказа
 /// </summary>
-[ComplexType]
 public class OrderShop
 {
     /// <summary>
     /// ID магазина
     /// </summary>
-    [Column(Order = 61), Required]
-    public required Ulid ShopId { get; set; }
+    public required int ShopId { get; set; }
 
     /// <summary>
     /// наименование
     /// </summary>
-    [Column(Order = 62), Required]
     public required string Name { get; set; }
 
     /// <summary>

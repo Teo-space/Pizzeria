@@ -3,23 +3,26 @@
 /// <summary>
 /// Покупатель заказа
 /// </summary>
-[ComplexType, Index(nameof(Phone))]
 public class OrderClient
 {
-    /// <summary>Номер телефона</summary>
-    [Column(Order = 21), Required, Key]
+    /// <summary>
+    /// Номер телефона
+    /// </summary>
     public required long Phone { get; set; }
-    /// <summary>адрес эл. почты</summary>
-    [Column(Order = 22)]
+    /// <summary>
+    /// адрес эл. почты
+    /// </summary>
     public string Email { get; set; }
-    /// <summary>Имя</summary>
-    [Column(Order = 23), Required]
+    /// <summary>
+    /// Имя
+    /// </summary>
     public required string Name { get; set; }
-    /// <summary>Фамилия</summary>
-    [Column(Order = 24), Required] 
+    /// <summary>
+    /// Фамилия
+    /// </summary>
     public required string SurName { get; set; }
-    /// <summary>Отчество</summary>
-
-    [Column(Order = 25), Required] 
+    /// <summary>
+    /// Отчество
+    /// </summary>
     public required string Patronymic { get; set; }
 }

@@ -42,6 +42,8 @@ public enum OrderStatus
     /// Доставлен
     /// </summary>
     Delivered = 402,
+
+
     /// <summary>
     /// Завершен
     /// </summary>

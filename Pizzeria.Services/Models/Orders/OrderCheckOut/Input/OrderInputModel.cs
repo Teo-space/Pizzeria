@@ -22,7 +22,7 @@ public class OrderInputModel
     /// <summary>
     /// Тип оплаты
     /// </summary>
-    public required PaymentType PaymentType { get; set; }
+    public required PaymentTypes PaymentType { get; set; }
     /// <summary>
     /// Позиции заказа
     /// </summary>

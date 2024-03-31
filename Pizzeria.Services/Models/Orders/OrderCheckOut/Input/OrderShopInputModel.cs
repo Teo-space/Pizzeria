@@ -6,5 +6,5 @@ public class OrderShopInputModel
     /// <summary>
     /// ID магазина
     /// </summary>
-    public Ulid ShopId { get; set; }
+    public int ShopId { get; set; }
 }

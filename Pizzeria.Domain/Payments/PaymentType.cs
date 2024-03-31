@@ -1,28 +1,17 @@
 ﻿namespace Pizzeria.Domain.Payments;
 
+
 /// <summary>
 /// Способ оплаты
 /// </summary>
-public enum PaymentType
+public class PaymentType
 {
     /// <summary>
-    /// Наличными в офисе
+    /// Id типа оплаты
     /// </summary>
-    CashInOffice = 100,
+    public int PaymentTypeId { get; set; }
     /// <summary>
-    /// Наличными курьеру
+    /// наименование типа оплаты
     /// </summary>
-    CashToCourier = 200,
-
-    /// <summary>
-    /// Картой в офисе
-    /// </summary>
-    CardInOffice = 300,
-    /// <summary>
-    /// Картой курьеру
-    /// </summary>
-    CardToCourier = 400,
-
-    ///Способы оплаты через партнеров
-
+    public string Name { get; set; }
 }

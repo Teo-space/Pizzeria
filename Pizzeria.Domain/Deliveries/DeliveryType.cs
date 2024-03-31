@@ -4,37 +4,25 @@
 /// <summary>
 /// тип доставки
 /// </summary>
-[Table("DELIVERY_TYPES")]
-[PrimaryKey(nameof(DeliveryTypeId))]
 public class DeliveryType : Entity
 {
-    private DeliveryType() { }
-    public DeliveryType(string name, decimal price)
-    {
-        DeliveryTypeId = Ulid.NewUlid();
-        Name = name;
-        Price = price;
-    }
     /// <summary>
     /// ID типа доставки
     /// </summary>
-    public Ulid DeliveryTypeId { get; private set; }
+    public int DeliveryTypeId { get; set; }
 
     /// <summary>
     /// наименование
     /// </summary>
-    public string Name { get; private set; }
+    public string Name { get; set; }
 
     /// <summary>
     /// Цена
     /// </summary>
-    public decimal Price { get; private set; }
+    public decimal Price { get; set; }
 
     /// <summary>
     /// Доставка бесплатно с суммы заказа
     /// </summary>
-    public decimal DeliveryFreeOrder { get; private set; }
-
-
-
+    public decimal DeliveryFreeOrder { get; set; }
 }

@@ -6,7 +6,14 @@ public class DeliveryTypeEnityConfiguration : IEntityTypeConfiguration<DeliveryT
 {
     public void Configure(EntityTypeBuilder<DeliveryType> builder)
     {
-        //builder.Property(x => x.DeliveryTypeId).HasConversion(x => x.ToGuid(), x => new Ulid(x));
+        builder.HasKey(x => x.DeliveryTypeId);
+
+        builder.Property(x => x.DeliveryTypeId).ValueGeneratedNever();
+
+        builder.Property(x => x.Name).IsRequired().HasMaxLength(100);
+
+        builder.Property(x => x.Price).IsRequired().HasPrecision(15, 6);
+
 
     }
 }

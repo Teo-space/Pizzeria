@@ -1,17 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Pizzeria.Persistence.DbContexts;
+using Pizzeria.Persistence.SeedWork;
 
 
-internal class DbContextFactory
+internal static class DbContextFactory
 {
     public static PizzeriaDbContext GetPizzeriaDbContext()
     {
         var Options = new DbContextOptionsBuilder<PizzeriaDbContext>()
             .UseSqlite("DataSource=file::memory:?cache=shared").Options;
-            //.UseSqlite("DataSource=file.db").Options;
 
-        return new PizzeriaDbContext(Options);
+        var dbContext = new PizzeriaDbContext(Options);
+        ApplySeedsToContext.ApplySeeds(dbContext);
+
+        return dbContext;
     }
-
 
 }

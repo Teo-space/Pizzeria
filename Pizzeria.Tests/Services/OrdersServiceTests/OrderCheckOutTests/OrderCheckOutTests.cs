@@ -7,11 +7,12 @@ using Pizzeria.Domain.Products;
 using Pizzeria.Domain.Shops;
 using Pizzeria.Persistence;
 using Pizzeria.Persistence.DbContexts;
+using Pizzeria.Persistence.SeedWork;
 using Pizzeria.Services;
 using Pizzeria.Services.Interfaces.Services;
 using Pizzeria.Services.Models.Orders.OrderCheckOut.Input;
 
-namespace Pizzeria.Tests.Services.OrdersServiceTests;
+namespace Pizzeria.Tests.Services.OrdersServiceTests.OrderCheckOutTests;
 
 
 
@@ -27,10 +28,14 @@ internal class OrderCheckOutTests
         serviceScope = new ServiceCollection()
             .AddTestInfrastructure()
             .AddTestServices()
+            .AddLogging()
             .BuildServiceProvider(validateScopes: true)
             .CreateScope();
 
         pizzeriaDbContext = serviceScope.ServiceProvider.GetRequiredService<PizzeriaDbContext>();
+
+        ApplySeedsToContext.ApplySeeds(pizzeriaDbContext);
+
         InitData(pizzeriaDbContext);
 
         ordersService = serviceScope.ServiceProvider.GetRequiredService<IOrdersService>();
@@ -45,46 +50,33 @@ internal class OrderCheckOutTests
 
     void InitData(PizzeriaDbContext pizzeriaDbContext)
     {
-        var productType = new ProductType("Пицца", "Вкуснейшая пицца");
+        var productType = new ProductType
+        {
+            Name = "Пицца",
+            Description = "Вкуснейшая пицца",
+            NeedCooking = true
+        };
         pizzeriaDbContext.ProductTypes.Add(productType);
         pizzeriaDbContext.SaveChanges();
+        ProductTypeId = productType.ProductTypeId;
 
-        var product = new Product(productType, "Гавайская пицца",
-            "куриное филе, ветчина, ананасы консервированные, соус коктейль, сыр моцарелла, грибы шампиньоны") 
-            {
-                Price = 850
-            };
+        var product = new Product
+        {
+            ProductTypeId = productType.ProductTypeId,
+            Name = "Гавайская пицца",
+            Description = "куриное филе, ветчина, ананасы консервированные, соус коктейль, сыр моцарелла, грибы шампиньоны",
+            Price = 850
+        };
 
         pizzeriaDbContext.Products.Add(product);
         pizzeriaDbContext.SaveChanges();
-
-        var shop = new Shop("Пиццерия на улице Пролетарской")
-        {
-            Address = new ShopAddress()
-            {
-                City = "Москва",
-                Street = "Пролетарская",
-                House = "100",
-                Building = "1В"
-            }
-        };
-        pizzeriaDbContext.Shops.Add(shop);
-        pizzeriaDbContext.SaveChanges();
-
-        var deliveryType = new DeliveryType("Самовывоз", 0);
-        pizzeriaDbContext.DeliveryTypes.Add(deliveryType);
-        pizzeriaDbContext.SaveChanges();
-
-        ProductTypeId = productType.ProductTypeId;
         ProductId = product.ProductId;
-        ShopId = shop.ShopId;
-        DeliveryTypeId = deliveryType.DeliveryTypeId;
     }
 
     Ulid ProductTypeId;
     Ulid ProductId;
-    Ulid ShopId;
-    Ulid DeliveryTypeId;
+    int ShopId = (int)MainShops.Main;
+    int DeliveryTypeId = (int)DeliveryTypes.CourierDelivery;
 
 
 
@@ -101,13 +93,15 @@ internal class OrderCheckOutTests
                 SurName = "Иванов",
                 Patronymic = "Иванович",
             },
+
             Shop = new OrderShopInputModel()
             {
                 ShopId = ShopId,
             },
+
             Delivery = new OrderDeliveryInputModel()
             {
-                TypeId = DeliveryTypeId,
+                DeliveryTypeId = DeliveryTypeId,
                 Address = new OrderDeliveryAddressInputModel()
                 {
                     City = "Москва",
@@ -116,7 +110,8 @@ internal class OrderCheckOutTests
                     Apartment = "201"
                 }
             },
-            PaymentType = PaymentType.CardInOffice,
+
+            PaymentType = PaymentTypes.CardToCourier,
 
             Positions = new[]
             {
@@ -139,5 +134,7 @@ internal class OrderCheckOutTests
         order.Positions.Should().NotBeNullOrEmpty();
         order.Positions.Should().HaveCount(1);
     }
+
+
 
 }

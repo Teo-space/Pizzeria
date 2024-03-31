@@ -3,35 +3,30 @@
 /// <summary>
 /// Платеж заказа
 /// </summary>
-[ComplexType]
 public class OrderPayment
 {
     /// <summary>
     /// Способ оплаты
     /// </summary>
-    [Column(Order = 51), Required]
-    public required PaymentType Type { get; set; }
+    public required PaymentTypes Type { get; set; }
 
     /// <summary>
     /// Сумма платежа
     /// </summary>
-    [Column(Order = 52)]
     public decimal Sum { get; private set; }
 
     /// <summary>
     /// Дата платежа
     /// </summary>
-    [Column(Order = 53)]
     public DateTime Payed { get; private set; }
     /// <summary>
     /// Оплачено
     /// </summary>
-    [Column(Order = 54)]
     public bool IsPayed { get; private set; }
 
 
 
-    public void MakePayment(PaymentType paymentType)
+    public void MakePayment(PaymentTypes paymentType)
     {
         IsPayed = true;
         Payed = DateTime.Now;

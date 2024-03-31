@@ -3,15 +3,18 @@
 /// <summary>
 /// Даты создания, изменения и готовности
 /// </summary>
-[ComplexType]
 public class OrderDate
 {
-    [Column(Order = 11)]
+    /// <summary>
+    /// Дата создания
+    /// </summary>
     public required DateTime Created { get; set; }
-
-    [Column(Order = 12)]
+    /// <summary>
+    /// Дата изменения
+    /// </summary>
     public required DateTime Modified { get; set; }
-
-    [Column(Order = 13)]
+    /// <summary>
+    /// дата завершения
+    /// </summary>
     public DateTime Ready { get; set; }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Pizzeria.Domain.Deliveries;
 using Pizzeria.Domain.Orders;
 using Pizzeria.Services.Interfaces.Repositories;
@@ -9,6 +10,7 @@ namespace Pizzeria.Services;
 
 
 internal class OrdersService(
+    ILogger<OrdersService> logger,
     IRepository repository, 
     IReadOnlyRepository readOnlyRepository, 
     IUnitOfWork unitOfWork)
@@ -18,13 +20,21 @@ internal class OrdersService(
     public async Task<Ulid> OrderCheckOut(OrderInputModel inputModel)
     {
         var positionsIds = inputModel.Positions.Select(x => x.ProductId).ToList();
+        if(!positionsIds.Any())
+        {
+            throw new Exception("Список позиций пуст");
+        }
 
         var products = await readOnlyRepository.Products
             .Include(x => x.ProductType)
             .Where(x => positionsIds.Contains(x.ProductId))
             .ToListAsync();
-
-        if(!products.All(x => positionsIds.Contains(x.ProductId)))
+        if(!products.Any() || products.Count != positionsIds.Count)
+        {
+            throw new Exception("Некоторые позиции не были найдены");
+        }
+        var errors = products.Where(x => !positionsIds.Contains(x.ProductId));
+        if (errors.Any())
         {
             throw new Exception("Товар не найден");
         }
@@ -41,7 +51,7 @@ internal class OrdersService(
             SurName = inputModel.Client.SurName,
             Patronymic = inputModel.Client.Patronymic,
         };
-
+        
         var orderShop = new OrderShop()
         {
             ShopId = shop.ShopId,
@@ -59,8 +69,8 @@ internal class OrdersService(
 
         var orderDelivery = new OrderDelivery()
         {
-            TypeId = inputModel.Delivery.TypeId,
-            Status = DeliveryStatus.Pending,
+            TypeId = inputModel.Delivery.DeliveryTypeId,
+            Status = DeliveryStatuses.Pending,
             Address = new OrderDeliveryAddress()
             {
                 City = inputModel.Delivery.Address.City,
@@ -74,7 +84,6 @@ internal class OrdersService(
         {
             Type = inputModel.PaymentType,
         };
-
 
         var order = new Order(orderClient, orderShop, orderDelivery, orderPayment);
 

@@ -15,7 +15,7 @@ public class OrderDelivery
     /// <summary>
     /// Статус доставки
     /// </summary>
-    public required DeliveryStatus Status { get; set; }
+    public required DeliveryStatuses Status { get; set; }
 
     /// <summary>
     /// Дата начала доставки
