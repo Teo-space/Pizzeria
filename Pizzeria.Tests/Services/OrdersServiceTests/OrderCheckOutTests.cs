@@ -12,7 +12,7 @@ using Pizzeria.Services;
 using Pizzeria.Services.Interfaces.Services;
 using Pizzeria.Services.Models.Orders.OrderCheckOut.Input;
 
-namespace Pizzeria.Tests.Services.OrdersServiceTests.OrderCheckOutTests;
+namespace Pizzeria.Tests.Services.OrdersServiceTests;
 
 
 
