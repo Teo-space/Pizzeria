@@ -3,7 +3,7 @@
 /// <summary>
 /// Покупатель заказа
 /// </summary>
-public class OrderClient
+public record OrderClient
 {
     /// <summary>
     /// Номер телефона

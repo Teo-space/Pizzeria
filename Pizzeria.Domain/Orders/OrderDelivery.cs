@@ -3,7 +3,7 @@
 /// <summary>
 /// Информация о доставке
 /// </summary>
-public class OrderDelivery
+public record OrderDelivery
 {
     /// <summary>
     /// ID типа доставки

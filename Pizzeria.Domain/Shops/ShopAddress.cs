@@ -4,7 +4,7 @@
 /// <summary>
 /// Адрес магазина
 /// </summary>
-public class ShopAddress
+public record ShopAddress
 {
     /// <summary>
     /// Город

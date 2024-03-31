@@ -3,7 +3,7 @@
 /// <summary>
 /// Магазин отправления заказа
 /// </summary>
-public class OrderShop
+public record OrderShop
 {
     /// <summary>
     /// ID магазина

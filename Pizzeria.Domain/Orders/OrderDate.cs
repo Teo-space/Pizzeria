@@ -3,7 +3,7 @@
 /// <summary>
 /// Даты создания, изменения и готовности
 /// </summary>
-public class OrderDate
+public record OrderDate
 {
     /// <summary>
     /// Дата создания

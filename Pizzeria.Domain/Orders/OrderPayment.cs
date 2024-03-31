@@ -3,7 +3,7 @@
 /// <summary>
 /// Платеж заказа
 /// </summary>
-public class OrderPayment
+public record OrderPayment
 {
     /// <summary>
     /// Способ оплаты

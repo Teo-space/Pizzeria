@@ -3,7 +3,7 @@
 /// <summary>
 /// Адрес магазина
 /// </summary>
-public class OrderShopAddress
+public record OrderShopAddress
 {
     /// <summary>
     /// Город
