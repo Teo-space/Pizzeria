@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Net;
 
 namespace Pizzeria.Persistence.EntityConfiguration;
 
@@ -18,15 +19,18 @@ public class OrderEnityConfiguration : IEntityTypeConfiguration<Order>
             .IsRequired()
             .IsConcurrencyToken();
 
-        builder.OwnsOne(x => x.Date, date =>
+        builder.ComplexProperty(x => x.Date, date =>
         {
+            date.IsRequired();
             date.Property(x => x.Created).HasColumnOrder(o++).IsRequired().HasColumnType("datetime");
             date.Property(x => x.Modified).HasColumnOrder(o++).IsRequired().HasColumnType("datetime");
             date.Property(x => x.Ready).HasColumnOrder(o++).IsRequired().HasColumnType("datetime");
         });
 
-        builder.OwnsOne(x => x.Client, client =>
+        builder.ComplexProperty(x => x.Client, client =>
         {
+            client.IsRequired();
+
             client.Property(x => x.Phone).HasColumnOrder(o++).IsRequired();
             client.Property(x => x.Email).HasColumnOrder(o++);
             client.Property(x => x.Name).HasColumnOrder(o++).IsRequired().HasMaxLength(100);
@@ -34,16 +38,20 @@ public class OrderEnityConfiguration : IEntityTypeConfiguration<Order>
             client.Property(x => x.Patronymic).HasColumnOrder(o++).IsRequired().HasMaxLength(100);
         });
 
-        builder.OwnsOne(x => x.Delivery, delivery =>
+        builder.ComplexProperty(x => x.Delivery, delivery =>
         {
+            delivery.IsRequired();
+
             delivery.Property(x => x.TypeId).HasColumnOrder(o++).IsRequired();
-            delivery.Property(x => x.Status).IsRequired();
+            delivery.Property(x => x.Status).HasColumnOrder(o++).IsRequired();
 
             delivery.Property(x => x.Start).HasColumnOrder(o++).IsRequired().HasColumnType("datetime");
             delivery.Property(x => x.End).HasColumnOrder(o++).IsRequired().HasColumnType("datetime");
 
-            delivery.OwnsOne(x => x.Address, address =>
+            delivery.ComplexProperty(x => x.Address, address =>
             {
+                address.IsRequired();
+
                 address.Property(x => x.City).HasColumnOrder(o++).IsRequired().HasMaxLength(100);
                 address.Property(x => x.Street).HasColumnOrder(o++).IsRequired().HasMaxLength(100);
                 address.Property(x => x.House).HasColumnOrder(o++).IsRequired().HasMaxLength(100);
@@ -54,35 +62,34 @@ public class OrderEnityConfiguration : IEntityTypeConfiguration<Order>
             });
         });
 
-        builder.OwnsOne(x => x.Payment, payment =>
+        builder.ComplexProperty(x => x.Payment, payment =>
         {
+            payment.IsRequired();
+
             payment.Property(x => x.Type).HasColumnOrder(o++).IsRequired();
             payment.Property(x => x.Sum).HasColumnOrder(o++).IsRequired();
             payment.Property(x => x.Payed).HasColumnOrder(o++).IsRequired().HasColumnType("datetime");
             payment.Property(x => x.IsPayed).HasColumnOrder(o++).IsRequired().HasPrecision(15, 6);
-
         });
 
-        builder.OwnsOne(x => x.Shop, shop =>
+        builder.ComplexProperty(x => x.Shop, shop =>
         {
+            shop.IsRequired();
+
             shop.Property(x => x.ShopId).HasColumnOrder(o++).IsRequired();
             shop.Property(x => x.Name).HasColumnOrder(o++).IsRequired();
 
-            shop.OwnsOne(x => x.Address, address =>
+            shop.ComplexProperty(x => x.Address, address =>
             {
+                address.IsRequired();
+
                 address.Property(x => x.City).HasColumnOrder(o++).IsRequired().HasMaxLength(100);
                 address.Property(x => x.Street).HasColumnOrder(o++).IsRequired().HasMaxLength(100);
                 address.Property(x => x.House).HasColumnOrder(o++).IsRequired().HasMaxLength(100);
                 address.Property(x => x.Building).HasColumnOrder(o++).IsRequired().HasMaxLength(100);
 
-                address.Property(x => x.Office).HasColumnOrder(o++).IsRequired().HasMaxLength(100);
+                address.Property(x => x.Office).HasColumnOrder(o++).HasMaxLength(100);
             });
-
         });
     }
 }
-/*
-
-
-
-*/

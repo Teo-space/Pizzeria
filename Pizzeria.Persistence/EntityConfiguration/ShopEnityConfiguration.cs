@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Pizzeria.Persistence.EntityConfiguration;
 
@@ -13,31 +12,17 @@ public class ShopEnityConfiguration : IEntityTypeConfiguration<Shop>
         builder.Property(x => x.ShopId).ValueGeneratedNever();
         builder.Property(x => x.Name).HasMaxLength(100);
 
-        /*
-        builder.ComplexProperty(x => x.Address, complexType =>
+
+        builder.ComplexProperty(x => x.Address, address =>
         {
-            //complexType.IsRequired();
+            address.IsRequired();
 
-            complexType.Property(x => x.City).IsRequired().HasMaxLength(100);
-            complexType.Property(x => x.Street).IsRequired().HasMaxLength(100);
-            complexType.Property(x => x.House).IsRequired().HasMaxLength(20);
-            complexType.Property(x => x.Building).IsRequired().HasMaxLength(20);
+            address.Property(x => x.City).IsRequired().HasMaxLength(100);
+            address.Property(x => x.Street).IsRequired().HasMaxLength(100);
+            address.Property(x => x.House).IsRequired().HasMaxLength(20);
+            address.Property(x => x.Building).IsRequired().HasMaxLength(20);
 
-            complexType.Property(x => x.Office).IsRequired(false).HasMaxLength(20);
+            address.Property(x => x.Office).HasMaxLength(20);
         });
-        */
-
-        //Address
-        builder.OwnsOne(x => x.Address, owned =>
-        {
-            owned.Property(x => x.City).IsRequired().HasMaxLength(100);
-            owned.Property(x => x.Street).IsRequired().HasMaxLength(100);
-            owned.Property(x => x.House).IsRequired().HasMaxLength(20);
-            owned.Property(x => x.Building).IsRequired().HasMaxLength(20);
-
-            owned.Property(x => x.Office).IsRequired(false).HasMaxLength(20);
-        });
-
-
     }
 }
