@@ -4,7 +4,7 @@ using Pizzeria.Persistence.Repositories;
 namespace Pizzeria.Persistence;
 
 
-public static class DI
+public static class PersistenceDependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {

@@ -4,12 +4,12 @@
 /// <summary>
 /// Покупатель заказа
 /// </summary>
-public class OrderClientModel
+public record OrderClientModel
 {
     /// <summary>
     /// Номер телефона
     /// </summary>
-    public required long Phone { get; set; }
+    public long Phone { get; set; }
 
     /// <summary>
     /// адрес эл. почты
@@ -19,15 +19,15 @@ public class OrderClientModel
     /// <summary>
     /// Имя
     /// </summary>
-    public required string Name { get; set; }
+    public string Name { get; set; }
 
     /// <summary>
     /// Фамилия
     /// </summary>
-    public required string SurName { get; set; }
+    public string SurName { get; set; }
 
     /// <summary>
     /// Отчество
     /// </summary>
-    public required string Patronymic { get; set; }
+    public string Patronymic { get; set; }
 }

@@ -22,6 +22,11 @@ internal class ApplySeedsToContext
         {
             dbContext.Shops.AddRange(ShopsFactory.GetShops);
         }
+        if(!dbContext.Products.Any() )
+        {
+            dbContext.Products.AddRange(ProductFactory.GetProduct());
+        }
+
 
         dbContext.SaveChanges();
     }

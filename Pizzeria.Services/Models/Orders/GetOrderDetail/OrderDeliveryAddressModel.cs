@@ -3,27 +3,27 @@
 /// <summary>
 /// Адрес доставки заказа
 /// </summary>
-public class OrderDeliveryAddress
+public record OrderDeliveryAddressModel
 {
     /// <summary>
     /// Город
     /// </summary>
-    public required string City { get; set; }
+    public string City { get; set; }
 
     /// <summary>
     /// Улица
     /// </summary>
-    public required string Street { get; set; }
+    public string Street { get; set; }
 
     /// <summary>
     /// Дом
     /// </summary>
-    public required string House { get; set; }
+    public string House { get; set; }
 
     /// <summary>
     /// Квартира
     /// </summary>
-    public required string Apartment { get; set; }
+    public string Apartment { get; set; }
 
     /// <summary>
     /// Подъезд

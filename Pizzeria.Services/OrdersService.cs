@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Mapster;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Pizzeria.Domain.Deliveries;
 using Pizzeria.Domain.Orders;
 using Pizzeria.Services.Interfaces.Repositories;
 using Pizzeria.Services.Interfaces.Services;
+using Pizzeria.Services.Models.Orders.GetOrderDetail;
 using Pizzeria.Services.Models.Orders.OrderCheckOut.Input;
 
 namespace Pizzeria.Services;
@@ -99,9 +101,17 @@ internal class OrdersService(
         return order.OrderId;
     }
 
-    public async Task GetOrderDetail()
+    public async Task<OrderModel> GetOrderDetail(Ulid orderId)
     {
+        var order = await readOnlyRepository.Orders
+            .Where(x => x.OrderId == orderId)
+            .Include(x => x.Positions).ThenInclude(x => x.Product)
+            .FirstOrDefaultAsync()
+            ?? throw new Exception("Список позиций пуст");
 
+        var orderModel = order.Adapt<OrderModel>();
+
+        return orderModel;
     }
 
 }

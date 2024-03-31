@@ -36,9 +36,10 @@ internal class OrderCheckOutTests
 
         ApplySeedsToContext.ApplySeeds(pizzeriaDbContext);
 
-        InitData(pizzeriaDbContext);
-
         ordersService = serviceScope.ServiceProvider.GetRequiredService<IOrdersService>();
+
+        var product = pizzeriaDbContext.Products.First();
+        ProductId = product.ProductId;
     }
 
     [TearDown]
@@ -48,32 +49,7 @@ internal class OrderCheckOutTests
         pizzeriaDbContext?.Dispose();
     }
 
-    void InitData(PizzeriaDbContext pizzeriaDbContext)
-    {
-        var productType = new ProductType
-        {
-            Name = "Пицца",
-            Description = "Вкуснейшая пицца",
-            NeedCooking = true
-        };
-        pizzeriaDbContext.ProductTypes.Add(productType);
-        pizzeriaDbContext.SaveChanges();
-        ProductTypeId = productType.ProductTypeId;
 
-        var product = new Product
-        {
-            ProductTypeId = productType.ProductTypeId,
-            Name = "Гавайская пицца",
-            Description = "куриное филе, ветчина, ананасы консервированные, соус коктейль, сыр моцарелла, грибы шампиньоны",
-            Price = 850
-        };
-
-        pizzeriaDbContext.Products.Add(product);
-        pizzeriaDbContext.SaveChanges();
-        ProductId = product.ProductId;
-    }
-
-    Ulid ProductTypeId;
     Ulid ProductId;
     int ShopId = (int)MainShops.Main;
     int DeliveryTypeId = (int)DeliveryTypes.CourierDelivery;

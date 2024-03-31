@@ -40,28 +40,23 @@ public partial class Order : Aggregate
     /// <summary>
     /// Даты создания, изменения и готовности
     /// </summary>
-    [Required]
     public OrderDate Date { get; private set; }
     /// <summary>
     /// Информация о клиенте
     /// </summary>
-    [Required]
     public OrderClient Client { get; private set; }
 
     /// <summary>
     /// Информация о доставке
     /// </summary>
-    [Required]
     public OrderDelivery Delivery { get; private set; }
     /// <summary>
     /// Оплата
     /// </summary>
-    [Required]
     public OrderPayment Payment { get; private set; }
     /// <summary>
     /// информация о магазине
     /// </summary>
-    [Required]
     public OrderShop Shop { get; private set; }
 
 

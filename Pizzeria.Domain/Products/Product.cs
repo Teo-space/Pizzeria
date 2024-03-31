@@ -15,7 +15,7 @@ public class Product : Entity
     /// Ид. типа продукта 
     /// </summary>
     public required Ulid ProductTypeId { get; set; }
-    public ProductType ProductType { get; private set; }
+    public ProductType ProductType { get; set; }
 
     /// <summary> 
     /// наименование 

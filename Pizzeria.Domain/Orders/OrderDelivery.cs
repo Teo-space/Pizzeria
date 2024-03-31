@@ -18,11 +18,11 @@ public record OrderDelivery
     /// <summary>
     /// Дата начала доставки
     /// </summary>
-    public DateTime Start { get; internal set; }
+    public DateTime Start { get; set; }
     /// <summary>
     /// Дата окончания
     /// </summary>
-    public DateTime End { get; internal set; }
+    public DateTime End { get; set; }
 
     /// <summary>
     /// Адрес доставки

@@ -16,10 +16,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\Payments\" />
-	  <Folder Include="Models\Products\" />
+	  <PackageReference Include="Mapster" Version="7.4.0" />
 	</ItemGroup>
-
+	
+	<ItemGroup>
+		<Folder Include="Models\Payments\" />
+		<Folder Include="Models\Products\" />
+	</ItemGroup>
+	
 	<ItemGroup>
 	  <ProjectReference Include="..\Pizzeria.Domain\Pizzeria.Domain.csproj" />
 	</ItemGroup>

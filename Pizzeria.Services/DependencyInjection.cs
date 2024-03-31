@@ -4,7 +4,7 @@ using Pizzeria.Services.Interfaces.Services;
 
 namespace Pizzeria.Services;
 
-public static class Di
+public static class ServicesDependencyInjection
 {
     public static IServiceCollection AddTestServices(this IServiceCollection services)
     {
