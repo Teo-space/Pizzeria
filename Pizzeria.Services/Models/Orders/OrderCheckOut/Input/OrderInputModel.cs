@@ -26,5 +26,6 @@ public class OrderInputModel
     /// <summary>
     /// Позиции заказа
     /// </summary>
-    public required IReadOnlyCollection<OrderBasketPositionInputModel> Positions { get; set; } = new List<OrderBasketPositionInputModel>();
+    public required IReadOnlyCollection<OrderBasketPositionInputModel> Positions { get; set; } 
+        = new List<OrderBasketPositionInputModel>();
 }

@@ -8,7 +8,7 @@ internal static class DbContextFactory
     public static PizzeriaDbContext GetPizzeriaDbContext()
     {
         var Options = new DbContextOptionsBuilder<PizzeriaDbContext>()
-            .UseSqlite("DataSource=file::memory:?cache=shared").Options;
+            .UseSqlite($"DataSource=file:DbContext_{Guid.NewGuid()}?mode=memory&cache=shared").Options;
 
         var dbContext = new PizzeriaDbContext(Options);
         ApplySeedsToContext.ApplySeeds(dbContext);

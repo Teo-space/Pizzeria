@@ -15,6 +15,8 @@ public class OrderPosition : Entity
         ProductTypeId = product.ProductTypeId;
         Price = product.Price;
 
+        NeedCooking = product.ProductType.NeedCooking;
+
         Quanity = quantity;
     }
 

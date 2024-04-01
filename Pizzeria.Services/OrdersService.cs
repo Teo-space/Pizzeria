@@ -31,6 +31,7 @@ internal class OrdersService(
             .Include(x => x.ProductType)
             .Where(x => positionsIds.Contains(x.ProductId))
             .ToListAsync();
+
         if(!products.Any() || products.Count != positionsIds.Count)
         {
             throw new Exception("Некоторые позиции не были найдены");
@@ -105,7 +106,8 @@ internal class OrdersService(
     {
         var order = await readOnlyRepository.Orders
             .Where(x => x.OrderId == orderId)
-            .Include(x => x.Positions).ThenInclude(x => x.Product)
+            .Include(x => x.Positions)
+            .ThenInclude(x => x.Product)
             .FirstOrDefaultAsync()
             ?? throw new Exception("Список позиций пуст");
 

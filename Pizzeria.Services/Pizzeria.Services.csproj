@@ -22,6 +22,7 @@
 	<ItemGroup>
 		<Folder Include="Models\Payments\" />
 		<Folder Include="Models\Products\" />
+		<Folder Include="Models\Shops\" />
 	</ItemGroup>
 	
 	<ItemGroup>

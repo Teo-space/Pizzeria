@@ -21,6 +21,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pizzeria.Tests", "Pizzeria.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pizzeria.Rest", "Pizzeria.Rest\Pizzeria.Rest.csproj", "{59836E04-F782-461C-B2D6-D331E695D2FA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "About", "About", "{ECF03DE4-4512-40BC-9BEB-62079DE1F7BA}"
+	ProjectSection(SolutionItems) = preProject
+		ToDo.md = ToDo.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{693F31C1-09EB-4896-B4DB-35F3148EE5C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +67,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{6B7A6FDA-3265-41B3-AF17-B56C77772654} = {693F31C1-09EB-4896-B4DB-35F3148EE5C3}
 		{F4040BD5-FFAD-4C69-9E7C-1F29C4DFB05A} = {78681FD4-38FC-4241-B505-F3E6FC53ABB1}
 		{906C43B1-D167-455C-A6B7-9D0E5E9E3977} = {78681FD4-38FC-4241-B505-F3E6FC53ABB1}
 		{75189936-38C8-46D9-9C18-1105620263CF} = {1CCAAAD5-8C38-49BB-9185-9B4AC3622365}
