@@ -7,7 +7,7 @@ internal class CatalogService(
     IDeliveriesService deliveriesService,
     IPaymentsService paymentsService,
     IProductsService productsService,
-    IShopsService shopsService)
+    IShopsService shopsService) : ICatalogService
 {
 
     public async Task<CatalogModel> GetCatalog()

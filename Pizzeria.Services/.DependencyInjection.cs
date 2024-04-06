@@ -9,6 +9,12 @@ public static class ServicesDependencyInjection
     public static IServiceCollection AddTestServices(this IServiceCollection services)
     {
         services.AddScoped<IOrdersService, OrdersService>();
+        services.AddScoped<ICatalogService, CatalogService>();
+        services.AddScoped<IDeliveriesService, DeliveriesService>();
+        services.AddScoped<IPaymentsService, PaymentsService>();
+        services.AddScoped<IProductsService, ProductsService>();
+        services.AddScoped<IShopsService, ShopsService>();
+
 
 
 
@@ -18,6 +24,11 @@ public static class ServicesDependencyInjection
     public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddScoped<IOrdersService, OrdersService>();
+        services.AddScoped<ICatalogService, CatalogService>();
+        services.AddScoped<IDeliveriesService, DeliveriesService>();
+        services.AddScoped<IPaymentsService, PaymentsService>();
+        services.AddScoped<IProductsService, ProductsService>();
+        services.AddScoped<IShopsService, ShopsService>();
 
 
 
