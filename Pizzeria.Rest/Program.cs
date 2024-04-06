@@ -11,6 +11,7 @@ string ReleaseCorsPolicy = "ReleaseCorsPolicy";
     builder.Services.AddAnyCors(ReleaseCorsPolicy);
     builder.Logging.AddSerilogLogging(builder.Configuration);
     builder.Services.AddMemoryCache();
+    builder.Services.AddResponseCaching();
     builder.Services.AddFluentValidationWithValidators(typeof(Program).Assembly);
 
     var AppBasePath = builder.Configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
@@ -27,6 +28,8 @@ var app = builder.Build();
     app.UseCors(ReleaseCorsPolicy);
 
     app.UseHttpsRedirection();
+
+    app.UseResponseCaching();
 
     app.UseAuthentication();
     app.UseAuthorization();
