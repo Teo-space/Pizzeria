@@ -1,4 +1,6 @@
-﻿namespace Pizzeria.Persistence.SeedWork;
+﻿using Pizzeria.Interfaces.Models.Shops;
+
+namespace Pizzeria.Persistence.SeedWork;
 
 public static class ShopsFactory
 {

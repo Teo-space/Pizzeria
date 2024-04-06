@@ -1,10 +1,10 @@
-﻿namespace Pizzeria.Domain.Payments;
+﻿namespace Pizzeria.Interfaces.Models.Payments;
 
 
 /// <summary>
 /// Способ оплаты
 /// </summary>
-public class PaymentType : Entity
+public record PaymentTypeModel
 {
     /// <summary>
     /// Id типа оплаты
