@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Pizzeria.Domain.Deliveries;
 using Pizzeria.Domain.Orders;
-using Pizzeria.Services.Interfaces.Repositories;
-using Pizzeria.Services.Interfaces.Services;
-using Pizzeria.Services.Models.Orders.GetOrderDetail;
-using Pizzeria.Services.Models.Orders.OrderCheckOut.Input;
+using Pizzeria.Interfaces.Models.Orders.GetOrderDetail;
+using Pizzeria.Interfaces.Models.Orders.GetOrderDetail.Input;
+using Pizzeria.Interfaces.Models.Orders.OrderCheckOut.Input;
+using Pizzeria.Interfaces.Repositories;
+using Pizzeria.Interfaces.Services;
+
 
 namespace Pizzeria.Services;
 
@@ -102,10 +104,10 @@ internal class OrdersService(
         return order.OrderId;
     }
 
-    public async Task<OrderModel> GetOrderDetail(Ulid orderId)
+    public async Task<OrderModel> GetOrderDetail(GetOrderDetailInputModel inputModel)
     {
         var order = await readOnlyRepository.Orders
-            .Where(x => x.OrderId == orderId)
+            .Where(x => x.OrderId == inputModel.OrderId)
             .Include(x => x.Positions)
             .ThenInclude(x => x.Product)
             .FirstOrDefaultAsync()

@@ -28,7 +28,7 @@ public class ProductType : Entity
     public required bool NeedCooking { get; set; }
 
     /// <summary>
-    /// Продукты
+    /// Продукты данного типа
     /// </summary>
     public List<Product> Products { get; private set; } = new List<Product>();
 }

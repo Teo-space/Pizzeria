@@ -8,7 +8,8 @@ public class PersistenceException(string message) : Exception(message);
 /// <summary>
 /// Объект не найден 
 /// </summary>
-public class EntityNotFoundException<T>(object Identificator) : PersistenceException($"{typeof(T).GetType().FullName} '{Identificator}' not found!");
+public class EntityNotFoundException<T>(object Identificator) 
+    : PersistenceException($"{typeof(T).GetType().FullName} '{Identificator}' not found!");
 
 
 

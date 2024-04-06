@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Net;
 
 namespace Pizzeria.Persistence.EntityConfiguration;
 

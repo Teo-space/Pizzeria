@@ -3,14 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Pizzeria.Domain.Deliveries;
 using Pizzeria.Domain.Payments;
-using Pizzeria.Domain.Products;
 using Pizzeria.Domain.Shops;
+using Pizzeria.Interfaces.Models.Orders.OrderCheckOut.Input;
+using Pizzeria.Interfaces.Services;
 using Pizzeria.Persistence;
 using Pizzeria.Persistence.DbContexts;
 using Pizzeria.Persistence.SeedWork;
 using Pizzeria.Services;
-using Pizzeria.Services.Interfaces.Services;
-using Pizzeria.Services.Models.Orders.OrderCheckOut.Input;
 
 namespace Pizzeria.Tests.Services.OrdersServiceTests;
 

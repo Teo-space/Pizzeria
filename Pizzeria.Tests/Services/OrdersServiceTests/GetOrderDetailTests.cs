@@ -4,11 +4,12 @@ using Pizzeria.Domain.Deliveries;
 using Pizzeria.Domain.Orders;
 using Pizzeria.Domain.Payments;
 using Pizzeria.Domain.Shops;
+using Pizzeria.Interfaces.Models.Orders.GetOrderDetail.Input;
+using Pizzeria.Interfaces.Services;
 using Pizzeria.Persistence;
 using Pizzeria.Persistence.DbContexts;
 using Pizzeria.Persistence.SeedWork;
 using Pizzeria.Services;
-using Pizzeria.Services.Interfaces.Services;
 
 namespace Pizzeria.Tests.Services.OrdersServiceTests;
 
@@ -117,7 +118,12 @@ internal class GetOrderDetailTests
     [Test]
     public async Task OkTest()
     {
-        var result = await ordersService.GetOrderDetail(OrderId);
+        var input = new GetOrderDetailInputModel
+        {
+            OrderId = OrderId
+        };
+
+        var result = await ordersService.GetOrderDetail(input);
         result.Should().NotBeNull();
 
         //--------------------------------------------------------------------------------------

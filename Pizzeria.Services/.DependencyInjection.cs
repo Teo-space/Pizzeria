@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Pizzeria.Services.Interfaces.Services;
+using Pizzeria.Interfaces.Services;
 
 namespace Pizzeria.Services;
 

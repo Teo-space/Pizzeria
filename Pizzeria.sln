@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "About", "About", "{ECF03DE4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{693F31C1-09EB-4896-B4DB-35F3148EE5C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizzeria.Interfaces", "Pizzeria.Interfaces\Pizzeria.Interfaces.csproj", "{D9C68A66-80FF-4597-8C70-986638E890BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{59836E04-F782-461C-B2D6-D331E695D2FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59836E04-F782-461C-B2D6-D331E695D2FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59836E04-F782-461C-B2D6-D331E695D2FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9C68A66-80FF-4597-8C70-986638E890BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C68A66-80FF-4597-8C70-986638E890BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9C68A66-80FF-4597-8C70-986638E890BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C68A66-80FF-4597-8C70-986638E890BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 		{906C43B1-D167-455C-A6B7-9D0E5E9E3977} = {78681FD4-38FC-4241-B505-F3E6FC53ABB1}
 		{75189936-38C8-46D9-9C18-1105620263CF} = {1CCAAAD5-8C38-49BB-9185-9B4AC3622365}
 		{614B1194-DDF1-4B1D-BA17-0A9523EDF293} = {1CCAAAD5-8C38-49BB-9185-9B4AC3622365}
+		{D9C68A66-80FF-4597-8C70-986638E890BB} = {78681FD4-38FC-4241-B505-F3E6FC53ABB1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {232CC761-6432-4BDC-B78C-8CCB3D3DCB7C}
