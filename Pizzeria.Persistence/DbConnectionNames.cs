@@ -2,5 +2,5 @@
 
 public static class DbConnectionNames
 {
-    public static string Connection { get; } = "ConnectionName";
+    public static string Connection { get; } = "PizzeriaDbContext";
 }

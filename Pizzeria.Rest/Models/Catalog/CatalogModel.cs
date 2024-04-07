@@ -29,4 +29,5 @@ public record CatalogModel
     /// Список доступных типов товаров с товарами
     /// </summary>
     public IReadOnlyCollection<ProductTypeModel> ProductTypes { get; set; } = new List<ProductTypeModel>();
+
 }

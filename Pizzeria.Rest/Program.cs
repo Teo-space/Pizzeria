@@ -19,7 +19,7 @@ string ReleaseCorsPolicy = "ReleaseCorsPolicy";
     builder.Services.AddDefaultSwagger(Prefix, Path.Combine(AppBasePath, $"Pizzeria.Models.xml"));
 }
 {
-    builder.Services.AddInfrastructure(builder.Configuration);
+    builder.Services.AddInfrastructureUseSqlite(builder.Configuration);
     builder.Services.AddServices(builder.Configuration);
 }
 var app = builder.Build();

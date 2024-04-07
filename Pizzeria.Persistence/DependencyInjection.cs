@@ -7,15 +7,28 @@ namespace Pizzeria.Persistence;
 
 public static class PersistenceDependencyInjection
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddInfrastructureUseSqlServer(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddRepositories();
 
         services.AddDbContext<PizzeriaDbContext>(options => options
-        .UseSqlServer(configuration.GetConnectionString(DbConnectionNames.Connection)));
+            .UseSqlServer(configuration.GetConnectionString(DbConnectionNames.Connection)));
+
 
         return services;
     }
+
+    public static IServiceCollection AddInfrastructureUseSqlite(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddRepositories();
+
+        services.AddDbContext<PizzeriaDbContext>(options => options
+            .UseSqlite(configuration.GetConnectionString(DbConnectionNames.Connection)));
+
+        return services;
+    }
+
+
 
     public static IServiceCollection AddTestInfrastructure(this IServiceCollection services)
     {

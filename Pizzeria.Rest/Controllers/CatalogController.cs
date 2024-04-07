@@ -22,6 +22,7 @@ public class CatalogController(ICatalogService catalogService) : ApiBaseControll
     {
         var model = await catalogService.GetCatalog();
         var result = model.Adapt<CatalogModel>();
+
         return Ok(result);
     }
 }
