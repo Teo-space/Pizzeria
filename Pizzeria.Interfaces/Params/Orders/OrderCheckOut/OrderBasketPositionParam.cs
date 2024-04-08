@@ -1,6 +1,6 @@
-﻿namespace Pizzeria.Interfaces.Models.Orders.OrderCheckOut.Input;
+﻿namespace Pizzeria.Interfaces.Params.Orders.OrderCheckOut;
 
-public class OrderBasketPositionInputModel
+public class OrderBasketPositionParam
 {
     /// <summary>
     /// Идентификатор варианта продукта

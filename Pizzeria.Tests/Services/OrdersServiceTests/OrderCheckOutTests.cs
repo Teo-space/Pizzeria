@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Pizzeria.Domain.Deliveries;
 using Pizzeria.Domain.Payments;
 using Pizzeria.Domain.Shops;
-using Pizzeria.Interfaces.Models.Orders.OrderCheckOut.Input;
+using Pizzeria.Interfaces.Params.Orders.OrderCheckOut;
 using Pizzeria.Interfaces.Services;
 using Pizzeria.Persistence;
 using Pizzeria.Persistence.DbContexts;
@@ -58,9 +58,9 @@ internal class OrderCheckOutTests
     [Test]
     public async Task OkTest()
     {
-        var input = new OrderInputModel()
+        var input = new OrderParam()
         {
-            Client = new OrderClientInputModel()
+            Client = new OrderClientParam()
             {
                 Phone = +7_908_123_4567,
                 Email = "name.surname.city@gmail.com",
@@ -69,15 +69,15 @@ internal class OrderCheckOutTests
                 Patronymic = "Иванович",
             },
 
-            Shop = new OrderShopInputModel()
+            Shop = new OrderShopParam()
             {
                 ShopId = ShopId,
             },
 
-            Delivery = new OrderDeliveryInputModel()
+            Delivery = new OrderDeliveryParam()
             {
                 DeliveryTypeId = DeliveryTypeId,
-                Address = new OrderDeliveryAddressInputModel()
+                Address = new OrderDeliveryAddressParam()
                 {
                     City = "Москва",
                     Street = "Ленинская",
@@ -90,7 +90,7 @@ internal class OrderCheckOutTests
 
             Positions = new[]
             {
-                new OrderBasketPositionInputModel()
+                new OrderBasketPositionParam()
                 {
                     ProductId = ProductId,
                     Quantity = 1,

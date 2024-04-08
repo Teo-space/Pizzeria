@@ -4,7 +4,7 @@ using Pizzeria.Domain.Deliveries;
 using Pizzeria.Domain.Orders;
 using Pizzeria.Domain.Payments;
 using Pizzeria.Domain.Shops;
-using Pizzeria.Interfaces.Models.Orders.GetOrderDetail.Input;
+using Pizzeria.Interfaces.Params.Orders.GetOrderDetail;
 using Pizzeria.Interfaces.Services;
 using Pizzeria.Persistence;
 using Pizzeria.Persistence.DbContexts;
@@ -118,7 +118,7 @@ internal class GetOrderDetailTests
     [Test]
     public async Task OkTest()
     {
-        var input = new GetOrderDetailInputModel
+        var input = new GetOrderDetailParam
         {
             OrderId = OrderId
         };

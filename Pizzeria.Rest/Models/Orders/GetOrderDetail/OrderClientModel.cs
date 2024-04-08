@@ -1,23 +1,31 @@
-﻿namespace Pizzeria.Interfaces.Models.Orders.OrderCheckOut.Input;
+﻿namespace Pizzeria.Rest.Models.Orders.GetOrderDetail;
 
-public class OrderClientInputModel
+
+/// <summary>
+/// Покупатель заказа
+/// </summary>
+public record OrderClientModel
 {
     /// <summary>
     /// Номер телефона
     /// </summary>
     public long Phone { get; set; }
+
     /// <summary>
     /// адрес эл. почты
     /// </summary>
     public string Email { get; set; }
+
     /// <summary>
     /// Имя
     /// </summary>
     public string Name { get; set; }
+
     /// <summary>
     /// Фамилия
     /// </summary>
     public string SurName { get; set; }
+
     /// <summary>
     /// Отчество
     /// </summary>

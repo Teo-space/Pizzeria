@@ -1,6 +1,6 @@
-﻿namespace Pizzeria.Interfaces.Models.Orders.OrderCheckOut.Input;
+﻿namespace Pizzeria.Interfaces.Params.Orders.OrderCheckOut;
 
-public class OrderDeliveryInputModel
+public class OrderDeliveryParam
 {
     /// <summary>
     /// ID типа доставки
@@ -10,5 +10,5 @@ public class OrderDeliveryInputModel
     /// <summary>
     /// Адрес доставки
     /// </summary>
-    public OrderDeliveryAddressInputModel Address { get; set; }
+    public OrderDeliveryAddressParam Address { get; set; }
 }

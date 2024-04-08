@@ -4,8 +4,8 @@ using Microsoft.Extensions.Logging;
 using Pizzeria.Domain.Deliveries;
 using Pizzeria.Domain.Orders;
 using Pizzeria.Interfaces.Models.Orders.GetOrderDetail;
-using Pizzeria.Interfaces.Models.Orders.GetOrderDetail.Input;
-using Pizzeria.Interfaces.Models.Orders.OrderCheckOut.Input;
+using Pizzeria.Interfaces.Params.Orders.GetOrderDetail;
+using Pizzeria.Interfaces.Params.Orders.OrderCheckOut;
 using Pizzeria.Interfaces.Repositories;
 using Pizzeria.Interfaces.Services;
 
@@ -21,7 +21,7 @@ internal class OrdersService(
     : IOrdersService
 {
 
-    public async Task<Ulid> OrderCheckOut(OrderInputModel inputModel)
+    public async Task<Ulid> OrderCheckOut(OrderParam inputModel)
     {
         var positionsIds = inputModel.Positions.Select(x => x.ProductId).ToList();
         if(!positionsIds.Any())
@@ -104,7 +104,7 @@ internal class OrdersService(
         return order.OrderId;
     }
 
-    public async Task<OrderModel> GetOrderDetail(GetOrderDetailInputModel inputModel)
+    public async Task<OrderModel> GetOrderDetail(GetOrderDetailParam inputModel)
     {
         var order = await readOnlyRepository.Orders
             .Where(x => x.OrderId == inputModel.OrderId)
