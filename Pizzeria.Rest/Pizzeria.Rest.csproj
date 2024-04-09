@@ -14,7 +14,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		
 		<PackageReference Include="Api.Controllers" Version="1.0.0" />
+		
 		<PackageReference Include="Api.Cors" Version="1.0.0" />
 		<PackageReference Include="Api.Exceptions" Version="1.0.0" />
 		<PackageReference Include="Api.Filters" Version="1.0.0" />
