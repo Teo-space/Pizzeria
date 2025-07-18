@@ -5,7 +5,7 @@ namespace Pizzeria.Domain.Orders;
 /// <summary>
 /// Магазин отправления заказа
 /// </summary>
-public record OrderShop
+public sealed record OrderShop
 {
     /// <summary>
     /// ID магазина

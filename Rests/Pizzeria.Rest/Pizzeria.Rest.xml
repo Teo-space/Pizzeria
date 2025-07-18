@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pizzeria.Rest</name>
+    </assembly>
+    <members>
+        <member name="T:Pizzeria.Rest.Controllers.CatalogController">
+            <summary>
+            Каталог магазина
+            </summary>
+        </member>
+        <member name="M:Pizzeria.Rest.Controllers.CatalogController.#ctor(Pizzeria.Interfaces.Services.ICatalogService)">
+            <summary>
+            Каталог магазина
+            </summary>
+        </member>
+        <member name="M:Pizzeria.Rest.Controllers.CatalogController.GetCatalog">
+            <summary>
+            Получение каталога
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Rest.Controllers.OrderController">
+            <summary>
+            Заказы
+            </summary>
+        </member>
+        <member name="M:Pizzeria.Rest.Controllers.OrderController.#ctor(Pizzeria.Interfaces.Services.IOrdersService)">
+            <summary>
+            Заказы
+            </summary>
+        </member>
+        <member name="M:Pizzeria.Rest.Controllers.OrderController.GetOrderDetail(Pizzeria.Rest.Input.GetOrderDetail.GetOrderDetailInput)">
+            <summary>
+            детализация по заказу
+            </summary>
+        </member>
+        <member name="M:Pizzeria.Rest.Controllers.OrderController.OrderCheckOut(Pizzeria.Rest.Input.OrderCheckOut.OrderCheckOutInput)">
+            <summary>
+            оформить заказ
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,8 +1,7 @@
 ﻿using Api.Controllers;
-using Mapster;
 using Microsoft.AspNetCore.Mvc;
 using Pizzeria.Interfaces.Services;
-using Pizzeria.Rest.Models.Catalog;
+using Pizzeria.Models.Catalog;
 
 namespace Pizzeria.Rest.Controllers;
 
@@ -15,14 +14,8 @@ public class CatalogController(ICatalogService catalogService) : ApiBaseControll
     /// <summary>
     /// Получение каталога
     /// </summary>
-    [HttpGet]
+    [HttpGet, Produces(typeof(CatalogModel))]
     [ResponseCache(Duration = 60)]
-    [Produces(typeof(CatalogModel))]
-    public async Task<IActionResult> GetCatalog()
-    {
-        var model = await catalogService.GetCatalog();
-        var result = model.Adapt<CatalogModel>();
+    public async Task<ActionResult> GetCatalog() => await catalogService.GetCatalog();
 
-        return Ok(result);
-    }
 }

@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pizzeria.Input</name>
+    </assembly>
+    <members>
+        <member name="P:Pizzeria.Rest.Input.GetOrderDetail.GetOrderDetailInput.OrderId">
+            <summary>
+            ID Заказа
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderBasketPositionInput.ProductId">
+            <summary>
+            Идентификатор варианта продукта
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderBasketPositionInput.Quantity">
+            <summary>
+            Количество для заказа
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Rest.Input.OrderCheckOut.OrderCheckOutInput">
+            <summary>
+            Оформление заказа
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderCheckOutInput.Client">
+            <summary>
+            Информация о клиенте
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderCheckOutInput.Shop">
+            <summary>
+            Информация о магазине
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderCheckOutInput.Delivery">
+            <summary>
+            Информация о доставке
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderCheckOutInput.PaymentType">
+            <summary>
+            Тип оплаты
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderCheckOutInput.Positions">
+            <summary>
+            Позиции заказа
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderClientInput.Phone">
+            <summary>
+            Номер телефона
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderClientInput.Email">
+            <summary>
+            адрес эл. почты
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderClientInput.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderClientInput.SurName">
+            <summary>
+            Фамилия
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderClientInput.Patronymic">
+            <summary>
+            Отчество
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderDeliveryAddressInput.City">
+            <summary>
+            Город
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderDeliveryAddressInput.Street">
+            <summary>
+            Улица
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderDeliveryAddressInput.House">
+            <summary>
+            Дом
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderDeliveryAddressInput.Apartment">
+            <summary>
+            Квартира
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderDeliveryAddressInput.Entrance">
+            <summary>
+            Подъезд
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderDeliveryAddressInput.Floor">
+            <summary>
+            Этаж
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderDeliveryInput.DeliveryTypeId">
+            <summary>
+            ID типа доставки
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderDeliveryInput.Address">
+            <summary>
+            Адрес доставки
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Rest.Input.OrderCheckOut.OrderShopInput.ShopId">
+            <summary>
+            ID магазина
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,12 +1,12 @@
 ﻿using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
-using Pizzeria.Domain.Deliveries;
+using Pizzeria.Domain.Enums;
 using Pizzeria.Domain.Orders;
-using Pizzeria.Domain.Payments;
-using Pizzeria.Domain.Shops;
-using Pizzeria.Interfaces.Params.Orders.GetOrderDetail;
 using Pizzeria.Interfaces.Services;
 using Pizzeria.Persistence;
+using Pizzeria.Persistence.DbContexts;
+using Pizzeria.Persistence.SeedWork;
+using Pizzeria.Rest.Input.GetOrderDetail;
 using Pizzeria.Services;
 
 namespace Pizzeria.Tests.Services.OrdersServiceTests;
@@ -62,7 +62,7 @@ internal class GetOrderDetailTests
             ShopId = shop.ShopId,
             Name = shop.Name,
 
-            Address = new Domain.Shops.OrderShopAddress()
+            Address = new OrderShopAddress()
             {
                 City = shop.Address.City,
                 Street = shop.Address.Street,
@@ -116,7 +116,7 @@ internal class GetOrderDetailTests
     [Test]
     public async Task OkTest()
     {
-        var input = new GetOrderDetailParam
+        var input = new GetOrderDetailInput
         {
             OrderId = OrderId
         };

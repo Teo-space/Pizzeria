@@ -1,4 +1,6 @@
-﻿namespace Pizzeria.Tests.Persistence;
+﻿using Pizzeria.Persistence.DbContexts;
+
+namespace Pizzeria.Tests.Persistence;
 [TestFixture]
 internal class PizzeriaDbContextTests
 {

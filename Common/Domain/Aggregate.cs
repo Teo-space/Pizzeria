@@ -1,5 +1,5 @@
 ﻿namespace Domain;
 
-public abstract class Aggregate : Entity
+public abstract record Aggregate : Entity
 {
 }

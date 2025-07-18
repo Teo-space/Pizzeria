@@ -1,12 +1,10 @@
-﻿using Domain;
-
-namespace Pizzeria.Domain.Deliveries;
+﻿namespace Pizzeria.Domain.Deliveries;
 
 
 /// <summary>
 /// Статусы доставки
 /// </summary>
-public class DeliveryStatus : Entity
+public sealed record DeliveryStatus : Entity
 {
     /// <summary>
     /// ID статуса доставки

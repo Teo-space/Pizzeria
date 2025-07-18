@@ -1,10 +1,7 @@
 ﻿using Api.Controllers;
-using Mapster;
 using Microsoft.AspNetCore.Mvc;
-using Pizzeria.Interfaces.Models.Orders.GetOrderDetail;
-using Pizzeria.Interfaces.Params.Orders.GetOrderDetail;
-using Pizzeria.Interfaces.Params.Orders.OrderCheckOut;
 using Pizzeria.Interfaces.Services;
+using Pizzeria.Models.Orders.GetOrderDetail;
 using Pizzeria.Rest.Input.GetOrderDetail;
 using Pizzeria.Rest.Input.OrderCheckOut;
 
@@ -20,28 +17,19 @@ public class OrderController(IOrdersService ordersService) : ApiBaseController
     /// <summary>
     /// детализация по заказу
     /// </summary>
-    [HttpGet]
+    [HttpGet, Produces(typeof(OrderModel))]
     [ResponseCache(Duration = 30)]
-    [Produces(typeof(OrderModel))]
-    public async Task<IActionResult> GetOrderDetail(GetOrderDetailInput input)
-    {
-        var model = await ordersService.GetOrderDetail(input.Adapt<GetOrderDetailParam>());
-
-        var result = model.Adapt<OrderModel>();
-
-        return Ok(result);
-    }
+    public async Task<ActionResult> GetOrderDetail(GetOrderDetailInput input) => await ordersService.GetOrderDetail(input);
 
     /// <summary>
     /// оформить заказ
     /// </summary>
-    [HttpPost]
-    [Produces(typeof(Ulid))]
-    public async Task<IActionResult> GetOrderDetail(OrderInput input)
+    [HttpPost, Produces(typeof(string))]
+    public async Task<IActionResult> OrderCheckOut(OrderCheckOutInput input)
     {
-        var OrderId = await ordersService.OrderCheckOut(input.Adapt<OrderParam>());
+        Ulid OrderId = await ordersService.OrderCheckOut(input);
 
-        return Ok(OrderId);
+        return Ok(OrderId.ToString());
     }
 
 

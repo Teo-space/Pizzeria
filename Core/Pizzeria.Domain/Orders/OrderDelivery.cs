@@ -1,9 +1,11 @@
-﻿namespace Pizzeria.Domain.Orders;
+﻿using Pizzeria.Domain.Enums;
+
+namespace Pizzeria.Domain.Orders;
 
 /// <summary>
 /// Информация о доставке
 /// </summary>
-public record OrderDelivery
+public sealed record OrderDelivery
 {
     /// <summary>
     /// ID типа доставки

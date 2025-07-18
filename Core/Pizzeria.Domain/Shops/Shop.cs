@@ -4,7 +4,7 @@
 /// <summary>
 /// Магазин
 /// </summary>
-public class Shop : Entity
+public sealed record Shop : Entity
 {
     /// <summary>
     /// ID магазина

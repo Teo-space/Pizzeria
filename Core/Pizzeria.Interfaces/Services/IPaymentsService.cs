@@ -1,8 +1,6 @@
-﻿namespace Pizzeria.Interfaces.Services;
+﻿using Pizzeria.Models.Payments;
 
-using Pizzeria.Interfaces.Models.Payments;
-
-
+namespace Pizzeria.Interfaces.Services;
 public interface IPaymentsService
 {
     public Task<IReadOnlyCollection<PaymentTypeModel>> GetPaymentTypes();

@@ -3,7 +3,7 @@
 /// <summary>
 /// Даты создания, изменения и готовности
 /// </summary>
-public record OrderDate
+public sealed record OrderDate
 {
     /// <summary>
     /// Дата создания

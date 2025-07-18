@@ -5,7 +5,7 @@ namespace Domain;
 /// <summary>
 /// Базовая доменная сущность
 /// </summary>
-public abstract class Entity
+public abstract record Entity
 {
     //Список событий для хранения
     [NotMapped]

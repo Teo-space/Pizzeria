@@ -4,7 +4,7 @@
 /// <summary>
 /// Способ оплаты
 /// </summary>
-public class PaymentType : Entity
+public sealed record PaymentType : Entity
 {
     /// <summary>
     /// Id типа оплаты

@@ -1,6 +1,6 @@
 ﻿namespace Pizzeria.Interfaces.Services;
 
-using Pizzeria.Interfaces.Models.Shops;
+using Pizzeria.Models.Shops;
 
 public interface IShopsService
 {

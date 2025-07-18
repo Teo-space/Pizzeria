@@ -4,7 +4,7 @@
 /// <summary>
 /// Заказ
 /// </summary>
-public partial class Order : Aggregate
+public sealed partial record Order : Aggregate
 {
     private Order() { }
     public Order(OrderClient client, OrderShop shop, OrderDelivery delivery, OrderPayment payment)

@@ -4,7 +4,7 @@
 /// <summary>
 /// Товар
 /// </summary>
-public class Product : Entity
+public sealed record Product : Entity
 {
     /// <summary> 
     /// Ид. продукта 

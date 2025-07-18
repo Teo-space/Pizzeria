@@ -1,9 +1,11 @@
-﻿namespace Pizzeria.Domain.Orders;
+﻿using Pizzeria.Domain.Enums;
+
+namespace Pizzeria.Domain.Orders;
 
 /// <summary>
 /// Платеж заказа
 /// </summary>
-public record OrderPayment
+public sealed record OrderPayment
 {
     /// <summary>
     /// Способ оплаты

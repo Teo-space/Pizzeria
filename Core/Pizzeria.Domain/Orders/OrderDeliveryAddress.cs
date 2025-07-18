@@ -3,7 +3,7 @@
 /// <summary>
 /// Адрес доставки заказа
 /// </summary>
-public record OrderDeliveryAddress
+public sealed record OrderDeliveryAddress
 {
     /// <summary>
     /// Город

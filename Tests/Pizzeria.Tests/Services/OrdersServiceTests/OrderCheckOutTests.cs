@@ -1,13 +1,14 @@
 ﻿using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Pizzeria.Domain.Deliveries;
-using Pizzeria.Domain.Payments;
-using Pizzeria.Domain.Shops;
-using Pizzeria.Interfaces.Params.Orders.OrderCheckOut;
+using Pizzeria.Domain.Enums;
 using Pizzeria.Interfaces.Services;
 using Pizzeria.Persistence;
+using Pizzeria.Persistence.DbContexts;
+using Pizzeria.Persistence.SeedWork;
+using Pizzeria.Rest.Input.OrderCheckOut;
 using Pizzeria.Services;
+
 
 namespace Pizzeria.Tests.Services.OrdersServiceTests;
 
@@ -56,9 +57,9 @@ internal class OrderCheckOutTests
     [Test]
     public async Task OkTest()
     {
-        var input = new OrderParam()
+        var input = new OrderCheckOutInput
         {
-            Client = new OrderClientParam()
+            Client = new OrderClientInput
             {
                 Phone = +7_908_123_4567,
                 Email = "name.surname.city@gmail.com",
@@ -67,15 +68,15 @@ internal class OrderCheckOutTests
                 Patronymic = "Иванович",
             },
 
-            Shop = new OrderShopParam()
+            Shop = new OrderShopInput
             {
                 ShopId = ShopId,
             },
 
-            Delivery = new OrderDeliveryParam()
+            Delivery = new OrderDeliveryInput
             {
                 DeliveryTypeId = DeliveryTypeId,
-                Address = new OrderDeliveryAddressParam()
+                Address = new OrderDeliveryAddressInput
                 {
                     City = "Москва",
                     Street = "Ленинская",
@@ -88,7 +89,7 @@ internal class OrderCheckOutTests
 
             Positions = new[]
             {
-                new OrderBasketPositionParam()
+                new OrderBasketPositionInput
                 {
                     ProductId = ProductId,
                     Quantity = 1,

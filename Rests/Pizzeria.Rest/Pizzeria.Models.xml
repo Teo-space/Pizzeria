@@ -1,0 +1,440 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pizzeria.Models</name>
+    </assembly>
+    <members>
+        <member name="T:Pizzeria.Models.Catalog.CatalogModel">
+            <summary>
+            Каталог магазина
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Catalog.CatalogModel.DeliveryTypes">
+            <summary>
+            Список доступных типов доставки
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Catalog.CatalogModel.PaymentTypes">
+            <summary>
+            Список доступных типов оплаты
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Catalog.CatalogModel.Shops">
+            <summary>
+            Список доступных магазинов из которых возможен заказ
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Catalog.CatalogModel.ProductTypes">
+            <summary>
+            Список доступных типов товаров с товарами
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Deliveries.DeliveryTypeModel">
+            <summary>
+            тип доставки
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Deliveries.DeliveryTypeModel.DeliveryTypeId">
+            <summary>
+            ID типа доставки
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Deliveries.DeliveryTypeModel.Name">
+            <summary>
+            наименование
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Deliveries.DeliveryTypeModel.Price">
+            <summary>
+            Цена
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Deliveries.DeliveryTypeModel.DeliveryFreeOrder">
+            <summary>
+            Доставка бесплатно с суммы заказа
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Orders.GetOrderDetail.OrderClientModel">
+            <summary>
+            Покупатель заказа
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderClientModel.Phone">
+            <summary>
+            Номер телефона
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderClientModel.Email">
+            <summary>
+            адрес эл. почты
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderClientModel.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderClientModel.SurName">
+            <summary>
+            Фамилия
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderClientModel.Patronymic">
+            <summary>
+            Отчество
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Orders.GetOrderDetail.OrderDateModel">
+            <summary>
+            Даты создания, изменения и готовности
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderDateModel.Created">
+            <summary>
+            Дата создания
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderDateModel.Modified">
+            <summary>
+            Дата изменения
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderDateModel.Ready">
+            <summary>
+            дата завершения
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Orders.GetOrderDetail.OrderDeliveryAddressModel">
+            <summary>
+            Адрес доставки заказа
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderDeliveryAddressModel.City">
+            <summary>
+            Город
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderDeliveryAddressModel.Street">
+            <summary>
+            Улица
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderDeliveryAddressModel.House">
+            <summary>
+            Дом
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderDeliveryAddressModel.Apartment">
+            <summary>
+            Квартира
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderDeliveryAddressModel.Entrance">
+            <summary>
+            Подъезд
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderDeliveryAddressModel.Floor">
+            <summary>
+            Этаж
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Orders.GetOrderDetail.OrderDeliveryModel">
+            <summary>
+            Информация о доставке
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderDeliveryModel.TypeId">
+            <summary>
+            ID типа доставки
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderDeliveryModel.Status">
+            <summary>
+            Статус доставки
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderDeliveryModel.Start">
+            <summary>
+            Дата начала доставки
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderDeliveryModel.End">
+            <summary>
+            Дата окончания
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderDeliveryModel.Address">
+            <summary>
+            Адрес доставки
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Orders.GetOrderDetail.OrderModel">
+            <summary>
+            Заказ
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderModel.OrderId">
+            <summary>
+            Идентификатор заказа
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderModel.Date">
+            <summary>
+            Даты создания, изменения и готовности
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderModel.Client">
+            <summary>
+            Информация о клиенте
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderModel.Delivery">
+            <summary>
+            Информация о доставке
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderModel.Payment">
+            <summary>
+            Оплата
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderModel.Shop">
+            <summary>
+            информация о магазине
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderModel.Positions">
+            <summary>
+            Позиции заказа
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Orders.GetOrderDetail.OrderPaymentModel">
+            <summary>
+            Платеж заказа
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderPaymentModel.Type">
+            <summary>
+            Способ оплаты
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderPaymentModel.Sum">
+            <summary>
+            Сумма платежа
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderPaymentModel.Payed">
+            <summary>
+            Дата платежа
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderPaymentModel.IsPayed">
+            <summary>
+            Оплачено
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Orders.GetOrderDetail.OrderPositionModel">
+            <summary>
+            позиция заказа
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderPositionModel.OrderPositionId">
+            <summary>
+            ID позиции заказа
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderPositionModel.ProductName">
+            <summary>
+            наименование продукта
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderPositionModel.Quanity">
+            <summary>
+            количество
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderPositionModel.Price">
+            <summary>
+            Цена
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderPositionModel.Sum">
+            <summary>
+            Сумма
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Orders.GetOrderDetail.OrderShopAddressModel">
+            <summary>
+            Адрес магазина
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderShopAddressModel.City">
+            <summary>
+            Город
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderShopAddressModel.Street">
+            <summary>
+            Улица
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderShopAddressModel.House">
+            <summary>
+            Дом
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderShopAddressModel.Building">
+            <summary>
+            Корпус \ строение
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderShopAddressModel.Office">
+            <summary>
+            офис
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Orders.GetOrderDetail.OrderShopModel">
+            <summary>
+            Магазин отправления заказа
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderShopModel.ShopId">
+            <summary>
+            ID магазина
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderShopModel.Name">
+            <summary>
+            наименование
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Orders.GetOrderDetail.OrderShopModel.Address">
+            <summary>
+            Адрес офиса
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Payments.PaymentTypeModel">
+            <summary>
+            Способ оплаты
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Payments.PaymentTypeModel.PaymentTypeId">
+            <summary>
+            Id типа оплаты
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Payments.PaymentTypeModel.Name">
+            <summary>
+            наименование типа оплаты
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Products.ProductModel">
+            <summary>
+            Товар
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Products.ProductModel.ProductId">
+            <summary> 
+            Ид. продукта 
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Products.ProductModel.Name">
+            <summary> 
+            наименование 
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Products.ProductModel.Description">
+            <summary> 
+            Описание 
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Products.ProductModel.Price">
+            <summary> 
+            Описание 
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Products.ProductTypeModel">
+            <summary>
+            Тип товара
+            типы товара могут требовать приготовления 'NeedCooking'
+            Такие типы товара формируют 'Cooking' при их заказе
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Products.ProductTypeModel.ProductTypeId">
+            <summary>
+            Ид. типа продукта
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Products.ProductTypeModel.Name">
+            <summary>
+            наименование
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Products.ProductTypeModel.Description">
+            <summary>
+            Описание
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Products.ProductTypeModel.NeedCooking">
+            <summary>
+            требуется ли приготовление
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Products.ProductTypeModel.Products">
+            <summary>
+            Продукты данного типа
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Shops.ShopAddressModel">
+            <summary>
+            Адрес магазина
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Shops.ShopAddressModel.City">
+            <summary>
+            Город
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Shops.ShopAddressModel.Street">
+            <summary>
+            Улица
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Shops.ShopAddressModel.House">
+            <summary>
+            Дом
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Shops.ShopAddressModel.Building">
+            <summary>
+            Корпус \ строение
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Shops.ShopAddressModel.Office">
+            <summary>
+            офис
+            </summary>
+        </member>
+        <member name="T:Pizzeria.Models.Shops.ShopModel">
+            <summary>
+            Магазин
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Shops.ShopModel.ShopId">
+            <summary>
+            ID магазина
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Shops.ShopModel.Name">
+            <summary>
+            наименование
+            </summary>
+        </member>
+        <member name="P:Pizzeria.Models.Shops.ShopModel.Address">
+            <summary>
+            Адрес офиса
+            </summary>
+        </member>
+    </members>
+</doc>

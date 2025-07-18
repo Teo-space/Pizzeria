@@ -1,6 +1,6 @@
-﻿using Pizzeria.Interfaces.Models.Orders.GetOrderDetail;
-using Pizzeria.Interfaces.Params.Orders.GetOrderDetail;
-using Pizzeria.Interfaces.Params.Orders.OrderCheckOut;
+﻿using Pizzeria.Models.Orders.GetOrderDetail;
+using Pizzeria.Rest.Input.GetOrderDetail;
+using Pizzeria.Rest.Input.OrderCheckOut;
 
 namespace Pizzeria.Interfaces.Services;
 
@@ -12,10 +12,10 @@ public interface IOrdersService
     /// <summary>
     /// оформить заказ
     /// </summary>
-    Task<Ulid> OrderCheckOut(OrderParam inputModel);
+    Task<Ulid> OrderCheckOut(OrderCheckOutInput inputModel);
 
     /// <summary>
     /// детализация по заказу
     /// </summary>
-    Task<OrderModel> GetOrderDetail(GetOrderDetailParam inputModel);
+    Task<OrderModel> GetOrderDetail(GetOrderDetailInput inputModel);
 }

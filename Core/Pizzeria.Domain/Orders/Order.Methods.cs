@@ -1,6 +1,6 @@
 ﻿namespace Pizzeria.Domain.Orders;
 
-public partial class Order : Aggregate
+public sealed partial record Order : Aggregate
 {
 
     /*

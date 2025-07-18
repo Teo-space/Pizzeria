@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# 17
+# Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{1CCAAAD5-8C38-49BB-9185-9B4AC3622365}"
@@ -33,6 +33,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pizzeria.Rest", "Rests\Pizzeria.Rest\Pizzeria.Rest.csproj", "{0E065DEA-8832-4C28-A549-FBC4285C82B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pizzeria.Tests", "Tests\Pizzeria.Tests\Pizzeria.Tests.csproj", "{F36A829D-ECCA-4207-98F6-A34E30F7795B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizzeria.Models", "Core\Pizzeria.Models\Pizzeria.Models.csproj", "{D15098B5-3DDB-4A45-AE93-0D8CA19AFE75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizzeria.Input", "Core\Pizzeria.Input\Pizzeria.Input.csproj", "{4411F038-E4A0-4B95-BE75-0250754E8B82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,6 +76,14 @@ Global
 		{F36A829D-ECCA-4207-98F6-A34E30F7795B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F36A829D-ECCA-4207-98F6-A34E30F7795B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F36A829D-ECCA-4207-98F6-A34E30F7795B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D15098B5-3DDB-4A45-AE93-0D8CA19AFE75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D15098B5-3DDB-4A45-AE93-0D8CA19AFE75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D15098B5-3DDB-4A45-AE93-0D8CA19AFE75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D15098B5-3DDB-4A45-AE93-0D8CA19AFE75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4411F038-E4A0-4B95-BE75-0250754E8B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4411F038-E4A0-4B95-BE75-0250754E8B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4411F038-E4A0-4B95-BE75-0250754E8B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4411F038-E4A0-4B95-BE75-0250754E8B82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +97,8 @@ Global
 		{D0DCF1B3-C742-4A39-895E-B8ACB24DF017} = {1CCAAAD5-8C38-49BB-9185-9B4AC3622365}
 		{0E065DEA-8832-4C28-A549-FBC4285C82B5} = {2405A7AA-38F2-43F3-A868-8AC61D872AF0}
 		{F36A829D-ECCA-4207-98F6-A34E30F7795B} = {E5EE43D9-70C4-4911-B3D8-DFF35930C11A}
+		{D15098B5-3DDB-4A45-AE93-0D8CA19AFE75} = {78681FD4-38FC-4241-B505-F3E6FC53ABB1}
+		{4411F038-E4A0-4B95-BE75-0250754E8B82} = {78681FD4-38FC-4241-B505-F3E6FC53ABB1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {232CC761-6432-4BDC-B78C-8CCB3D3DCB7C}

@@ -1,12 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>disable</Nullable>
+		
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<DocumentationFile>bin\Pizzeria.Models.xml</DocumentationFile>
+		<DocumentationFile>Pizzeria.Rest.xml</DocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -14,25 +15,32 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		
-		<PackageReference Include="Api.Controllers" Version="1.0.0" />
-		
-		<PackageReference Include="Api.Cors" Version="1.0.0" />
-		<PackageReference Include="Api.Exceptions" Version="1.0.0" />
-		<PackageReference Include="Api.Filters" Version="1.0.0" />
-		<PackageReference Include="Api.FluentValidation" Version="1.0.0" />
-		<PackageReference Include="Api.Http.Logging" Version="1.0.0" />
-		<PackageReference Include="Api.Logging" Version="1.0.0" />
-		<PackageReference Include="Api.Result" Version="1.0.0" />
-		<PackageReference Include="Api.Swagger" Version="1.0.0" />
+		<PackageReference Include="Results" Version="8.*" />
+		<PackageReference Include="Api.Logging" Version="8.0.2" />
+		<PackageReference Include="Api.Logging.IncomingRequests.LogTo.Console" Version="8.*" />
+
+		<PackageReference Include="Api.Controllers" Version="8.0.0" />
+		<PackageReference Include="Api.Cors" Version="8.*" />
+		<PackageReference Include="Api.Filters" Version="8.*" />
+		<PackageReference Include="Api.FluentValidation" Version="8.*" />
+		<PackageReference Include="Api.Swagger" Version="8.*" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\Core\Pizzeria.Domain\Pizzeria.Domain.csproj" />
+	  <ProjectReference Include="..\..\Core\Pizzeria.Input\Pizzeria.Input.csproj" />
 	  <ProjectReference Include="..\..\Core\Pizzeria.Interfaces\Pizzeria.Interfaces.csproj" />
+	  <ProjectReference Include="..\..\Core\Pizzeria.Models\Pizzeria.Models.csproj" />
 	  <ProjectReference Include="..\..\Core\Pizzeria.Services\Pizzeria.Services.csproj" />
+		
 	  <ProjectReference Include="..\..\Infrastructure\Pizzeria.Infrastructure\Pizzeria.Infrastructure.csproj" />
 	  <ProjectReference Include="..\..\Infrastructure\Pizzeria.Persistence\Pizzeria.Persistence.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Pizzeria.Input.xml" />
+		<None Remove="Pizzeria.Models.xml" />
+		<None Remove="Pizzeria.Rest.xml" />
 	</ItemGroup>
 
 </Project>

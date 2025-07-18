@@ -4,7 +4,7 @@
 /// <summary>
 /// тип доставки
 /// </summary>
-public class DeliveryType : Entity
+public sealed record DeliveryType : Entity
 {
     /// <summary>
     /// ID типа доставки

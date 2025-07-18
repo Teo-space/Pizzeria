@@ -3,7 +3,7 @@
 /// <summary>
 /// позиция заказа
 /// </summary>
-public class OrderPosition : Entity
+public sealed record OrderPosition : Entity
 {
     private OrderPosition() { }
     public OrderPosition(Order order, Product product, int quantity)

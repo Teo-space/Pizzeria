@@ -5,7 +5,7 @@
 /// типы товара могут требовать приготовления 'NeedCooking'
 /// Такие типы товара формируют 'Cooking' при их заказе
 /// </summary>
-public class ProductType : Entity
+public sealed record ProductType : Entity
 {
     /// <summary>
     /// Ид. типа продукта

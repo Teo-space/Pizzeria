@@ -1,8 +1,6 @@
-﻿namespace Pizzeria.Interfaces.Services;
+﻿using Pizzeria.Models.Deliveries;
 
-using Pizzeria.Interfaces.Models.Deliveries;
-
-
+namespace Pizzeria.Interfaces.Services;
 public interface IDeliveriesService
 {
     public Task<IReadOnlyCollection<DeliveryTypeModel>> GetDeliveryTypes();

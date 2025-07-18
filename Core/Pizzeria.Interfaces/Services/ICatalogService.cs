@@ -1,4 +1,4 @@
-﻿using Pizzeria.Interfaces.Models.Catalog;
+﻿using Pizzeria.Models.Catalog;
 
 namespace Pizzeria.Interfaces.Services;
 

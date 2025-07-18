@@ -1,22 +1,26 @@
-using Api.Controllers;
 using Api.Filters.Filters;
-using Api.Swagger;
+using Pizzeria.Input;
 using Pizzeria.Persistence;
 using Pizzeria.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 string ReleaseCorsPolicy = "ReleaseCorsPolicy";
 {
-    builder.Services.AddControllersWithFilters(typeof(HttpExceptionFilter));
     builder.Services.AddAnyCors(ReleaseCorsPolicy);
-    builder.Logging.AddSerilogLogging(builder.Configuration);
-    builder.Services.AddMemoryCache();
-    builder.Services.AddResponseCaching();
-    builder.Services.AddFluentValidationWithValidators(typeof(Program).Assembly);
 
-    var AppBasePath = builder.Configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
-    AppBasePath += Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar;
-    builder.Services.AddDefaultSwagger(Prefix, Path.Combine(AppBasePath, $"Pizzeria.Models.xml"));
+    builder.Services.AddControllersWithFilters(typeof(HttpExceptionFilter)).AddResponseCaching();
+
+    builder.AddSerilogLogging("Pizzeria");
+
+
+    builder.Services.AddFluentValidationWithValidators(typeof(InputModel).Assembly);
+
+    string appBasePath = builder.Configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
+
+    builder.Services.AddDefaultSwagger(Prefix,
+        Path.Combine(appBasePath, $"Pizzeria.Rest.xml"),
+        Path.Combine(appBasePath, $"Pizzeria.Models.xml"),
+        Path.Combine(appBasePath, $"Pizzeria.Input.xml"));
 }
 {
     builder.Services.AddInfrastructureUseSqlite(builder.Configuration);
